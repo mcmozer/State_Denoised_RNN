@@ -91,10 +91,11 @@ def attractor_net(X, params):
         # MIKE: including bias seems to be a big help. don't understand why
         h = tf.matmul(tf.tanh(h), W_hid_constr) + b_input + b['hid']
 
-    # MIKE: this seems to be a big help. don't understand why
+    # MIKE: applying the nonlinearity and THEN a linear transform seems to help, and I
+    # don't understand why
+    h = tf.matmul(tf.tanh(h), W['out']) + b['out']
     #h = tf.tanh(tf.matmul(h, W['out']) + b['out'])
-    h = tf.tanh(h)
-    #h = tf.matmul(h, W['out']) + b['out']
+    #h = tf.tanh(h)
     return h
 
 ######### END TANH RNN ##########################################################

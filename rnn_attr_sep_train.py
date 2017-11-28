@@ -13,8 +13,9 @@ SEQ_LEN = 5           # number of bits in input sequence
 N_HIDDEN = 5          # number of hidden units 
 N_CLASSES = 1         # number of output units
 ARCH = 'tanh'         # hidden layer type: 'GRU' or 'tanh'
-NOISE_LEVEL = .25     # noise in training attractor net
+NOISE_LEVEL = .25     # noise in training attractor net (std deviation)
 N_ATTRACTOR_STEPS = 5 # number of time steps in attractor dynamics
+                      # REMEMBER: 1 step = no attractor net
 ATTR_WEIGHT_CONSTRAINTS = False # DEBUG TRUE
                       # True: make attractor weights symmetric and have zero diag
                       # False: unconstrained
