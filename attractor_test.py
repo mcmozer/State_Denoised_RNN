@@ -6,18 +6,18 @@ import tensorflow as tf
 import numpy as np
 
 # Training Parameters
-training_epochs = 200
+training_epochs = 400
 n_replications = 10
 learning_rate = 0.002
 batch_size = 16
 display_epoch = 10
 N_INSTANCES_PER_ATTRACTOR = 50 # half for train, half for test
-N_ATTRACTORS = 20
+N_ATTRACTORS = 10 
 
 # Architecture Parameters
 N_FEATURES = 20
-NOISE_LEVEL = 0.5
-N_ATTRACTOR_STEPS = 10
+NOISE_LEVEL = 0.25
+N_ATTRACTOR_STEPS = 5
 
 def atanh(x):
     return np.log((1.0+x)/(1.0-x))/2.0
@@ -54,17 +54,16 @@ def mozer_get_variable(vname, mat_dim):
         var = tf.get_variable(vname, initializer=val)
     return var
 
-######### BEGIN TANH RNN ########################################################
+######### BEGIN ATTRACTOR NET ########################################################
 
-N_INPUT = N_OUTPUT = N_HIDDEN = N_FEATURES
+N_INPUT = N_HIDDEN = N_FEATURES
 
 def attractor_net_params_init():
 
-    W = {'hid': tf.get_variable("W_hid", initializer=tf.zeros([N_HIDDEN,N_HIDDEN])),
-         'out': tf.get_variable("W_out", initializer=tf.zeros([N_HIDDEN,N_OUTPUT])),
+    W = {'hid': tf.get_variable("W_hid", initializer=.01*tf.random_normal([N_HIDDEN,N_HIDDEN])),
         }
-    b = {'hid': tf.get_variable("b_hid", initializer=tf.zeros([N_HIDDEN])),
-         'out': tf.get_variable("b_out", initializer=tf.zeros([N_OUTPUT])),
+    b = {'hid': tf.get_variable("b_hid", initializer=.01*tf.random_normal([N_HIDDEN])),
+         'scale': tf.get_variable("b_scale", initializer=tf.ones([1])),
         }
 
     params = {
@@ -77,26 +76,20 @@ def attractor_net(X, params):
     W = params['W']
     b = params['b']
 
-    # MIKE: removing symmetry and zero diag constraint seems to be a help. don't know why
-    #W_hid_constr = (W['hid'] + tf.transpose(W['hid'])) * (1.0 - tf.eye(N_HIDDEN))
-    W_hid_constr = W['hid'] 
-    #W_hid_constr = (W['hid'] ) * (1.0 - tf.eye(N_HIDDEN))
-    #W_hid_constr = (W['hid'] + tf.transpose(W['hid'])) 
+    # DEBUG: removing symmetry and zero diag constraint seems to be a help. don't know why
+    #W_hid_constr = W['hid'] 
+    W_hid_constr = .5 * (W['hid'] + tf.transpose(W['hid'])) * (1.0 - tf.eye(N_HIDDEN))\
+                          + tf.diag(tf.abs(tf.diag_part(W['hid'])))
 
     # code is set up in this arrangement to match attr net embedded in RNN
     
     b_input = tf.atanh(X)
     h = tf.zeros(tf.shape(X))  # NOTE: resetting at 0, versus h = X
     for _ in range(N_ATTRACTOR_STEPS):
-        # MIKE: including bias seems to be a big help. don't understand why
-        h = tf.matmul(tf.tanh(h), W_hid_constr) + b_input + b['hid']
+        h = tf.matmul(tf.tanh(h), W_hid_constr) + b_input * b['scale'] + b['hid']
 
-    # MIKE: applying the nonlinearity and THEN a linear transform seems to help, and I
-    # don't understand why
-    h = tf.matmul(tf.tanh(h), W['out']) + b['out']
-    #h = tf.tanh(tf.matmul(h, W['out']) + b['out'])
-    #h = tf.tanh(h)
-    return h
+    h = tf.tanh(h)
+    return h, W_hid_constr
 
 ######### END TANH RNN ##########################################################
 
@@ -126,16 +119,14 @@ X = tf.placeholder("float", [None, N_FEATURES])
 Y = tf.placeholder("float", [None, N_FEATURES])
 
 params = attractor_net_params_init()
-Y_ = attractor_net(X, params)
+Y_, W_hid_constr = attractor_net(X, params)
 
 # compute relative distance:   |Y_-Y| / |X-Y|
-distXY = tf.sqrt(tf.reduce_sum(tf.square(X-Y), axis=1))
-distYY_ = tf.sqrt(tf.reduce_sum(tf.square(Y_-Y), axis=1))
-rel_dist = tf.reduce_mean(distYY_ / distXY)
+distXY = tf.reduce_sum(tf.square(X-Y))
+distYY_ = tf.reduce_sum(tf.square(Y_-Y))
 
-# Define loss and optimizer
-# Since only one output unit,
-loss_op = tf.reduce_mean(tf.pow(Y_ - Y, 2))
+# loss function and optimizer
+loss_op = distYY_ / distXY
 optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
 train_op = optimizer.minimize(loss_op)
 
@@ -151,33 +142,26 @@ init = tf.global_variables_initializer()
 
 # Start training
 with tf.Session() as sess:
-    saved_test_rel_dist=[]
+    saved_test_loss=[]
     for replication in range(n_replications):
         sess.run(init) # Run the initializer
 
         for epoch in range(1, training_epochs + 2):
             if (epoch-1) % display_epoch == 0:
-                [train_loss, train_rel_dist] = \
-                      sess.run([loss_op, rel_dist], feed_dict={X: X_train, Y: Y_train})
-                [test_loss, test_rel_dist] = \
-                      sess.run([loss_op, rel_dist], feed_dict={X: X_test, Y: Y_test})
+                train_loss = sess.run(loss_op, feed_dict={X: X_train, Y: Y_train})
+                test_loss = sess.run(loss_op, feed_dict={X: X_test, Y: Y_test})
                 print("epoch "+str(epoch-1) + "  loss/reldist Train " + \
-                          "{:.4f}".format(train_loss) + " " + \
-                          "{:.4f}".format(train_rel_dist) + " Test " + \
-                          "{:.4f}".format(test_loss) + " " +\
-                          "{:.4f}".format(test_rel_dist))
+                          "{:.4f}".format(train_loss) + " Test " + \
+                          "{:.4f}".format(test_loss))
 
             batches = get_batches(batch_size, X_train, Y_train)
             for (batch_x, batch_y) in batches:
                 # Run optimization
                 sess.run(train_op, feed_dict={X: batch_x, Y: batch_y})
-        saved_test_rel_dist.append(test_rel_dist)
+        saved_test_loss.append(test_loss)
+        #print(W_hid_constr.eval())
+        #print(params['W']['hid'].eval()+np.transpose(params['W']['hid'].eval()) * (1.0-np.eye(N_HIDDEN)))
 
-        #W = params['W']
-        #W_hid_constr = (W['hid'] + tf.transpose(W['hid'])) * (1.0 - tf.eye(N_HIDDEN))
-        #W_hid_constr = W['hid'] 
-        #print(sess.run(params['b']['hid']))
-
-    print('Mean relative distance on test: ',np.mean(saved_test_rel_dist))
+    print('Mean relative distance on test: ',np.mean(saved_test_loss))
     
 

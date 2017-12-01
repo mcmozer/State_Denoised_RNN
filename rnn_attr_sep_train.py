@@ -12,15 +12,13 @@ N_INPUT = 1           # number of input units
 SEQ_LEN = 5           # number of bits in input sequence   
 N_HIDDEN = 5          # number of hidden units 
 N_CLASSES = 1         # number of output units
-ARCH = 'tanh'         # hidden layer type: 'GRU' or 'tanh'
+ARCH = 'GRU'         # hidden layer type: 'GRU' or 'tanh'
 NOISE_LEVEL = .25     # noise in training attractor net (std deviation)
 N_ATTRACTOR_STEPS = 5 # number of time steps in attractor dynamics
                       # REMEMBER: 1 step = no attractor net
-ATTR_WEIGHT_CONSTRAINTS = False # DEBUG TRUE
+ATTR_WEIGHT_CONSTRAINTS = True
                       # True: make attractor weights symmetric and have zero diag
                       # False: unconstrained
-ATTR_OUTPUT_TRANSFORM = True # DEBUG False
-                      # True: add extra linear transform to output of attractor net
 ATTR_WEIGHTS_TRAINED_ON_PREDICTION = False
                       # True: train attractor weights on attractor net _and_ prediction
 
@@ -93,14 +91,13 @@ def GRU_params_init():
     W = {'out': mozer_get_variable("W_out", [N_HIDDEN, N_CLASSES]),
          'in_stack': mozer_get_variable("W_in_stack", [N_INPUT, 3*N_HIDDEN]),
          'rec_stack': mozer_get_variable("W_rec_stack", [N_HIDDEN,3*N_HIDDEN]),
-         'aout': tf.get_variable("W_aout", initializer=tf.eye(N_HIDDEN)),
-         'attractor': tf.get_variable("W_attractor", initializer=tf.zeros([N_HIDDEN,N_HIDDEN]))
+         'attractor': tf.get_variable("W_attractor", initializer=.01*tf.random_normal([N_HIDDEN,N_HIDDEN]))
         }
 
     b = {'out': mozer_get_variable("b_out", [N_CLASSES]),
          'stack': mozer_get_variable("b_stack", [3 * N_HIDDEN]),
-         'aout': tf.get_variable("b_aout", initializer=tf.zeros([N_HIDDEN])),
-         'attractor': tf.get_variable("b_attractor", initializer=tf.zeros([N_HIDDEN]))
+         'attractor': tf.get_variable("b_attractor", initializer=.01*tf.random_normal([N_HIDDEN])),
+         'scale': tf.get_variable("b_scale", initializer=tf.ones([1]))
         }
 
     params = {
@@ -115,9 +112,9 @@ def GRU(X, params):
         W = params['W']
         b = params['b']
         if ATTR_WEIGHT_CONSTRAINTS:
-            W_attractor_constrained = 0.5 * (W['attractor'] + \
-                                  tf.transpose(W['attractor'])) * \
-                                               (1.0 - tf.eye(N_HIDDEN))
+            W_attractor_constrained = (W['attractor'] + tf.transpose(W['attractor'])) \
+                                                      * .5 * (1.0 - tf.eye(N_HIDDEN)) \
+                                       + tf.diag(tf.abs(tf.diag_part(W['attractor'])))
         else:
             W_attractor_constrained = W['attractor']
 
@@ -147,12 +144,8 @@ def GRU(X, params):
             h_cleaned = tf.zeros(tf.shape(h_prev))
             for _ in range(N_ATTRACTOR_STEPS):
                 h_cleaned = tf.matmul(tf.tanh(h_cleaned), W_attractor_constrained) \
-                                                                + h_net + b['attractor']
-            # add the linear transform at the end that seems to help
-            if (ATTR_OUTPUT_TRANSFORM):
-                h_cleaned = tf.matmul(tf.tanh(h_cleaned), W['aout']) + b['aout']
-            else:
-                h_cleaned = tf.tanh(h_cleaned)
+                                                    + b['scale'] * h_net + b['attractor']
+            h_cleaned = tf.tanh(h_cleaned)
             return [h_cleaned, h_net]
 
         # X:                       (batch_size, SEQ_LEN, N_HIDDEN) 
@@ -176,13 +169,12 @@ def RNN_tanh_params_init():
     W = {'in' : mozer_get_variable("W_in",[N_INPUT, N_HIDDEN]),
          'rec' : mozer_get_variable("W_rec", [N_HIDDEN, N_HIDDEN]),
          'out': mozer_get_variable("W_out", [N_HIDDEN, N_CLASSES]),
-         'aout': tf.get_variable("W_aout", initializer=tf.eye(N_HIDDEN)),
-         'attractor': tf.get_variable("W_attractor", initializer=tf.zeros([N_HIDDEN,N_HIDDEN]))
+         'attractor': tf.get_variable("W_attractor", initializer=.01*tf.random_normal([N_HIDDEN,N_HIDDEN]))
         }
     b = {'rec': mozer_get_variable("b_rec", [N_HIDDEN]),
          'out': mozer_get_variable("b_out", [N_CLASSES]),
-         'aout': tf.get_variable("b_aout", initializer=tf.zeros([N_HIDDEN])),
-         'attractor': tf.get_variable("b_attractor", initializer=tf.zeros([N_HIDDEN]))
+         'attractor': tf.get_variable("b_attractor", initializer=.01*tf.random_normal([N_HIDDEN])),
+         'scale': tf.get_variable("b_scale", initializer=tf.ones([1]))
         }
 
     params = {
@@ -196,9 +188,9 @@ def RNN_tanh(X, params):
     W = params['W']
     b = params['b']
     if ATTR_WEIGHT_CONSTRAINTS:
-        W_attractor_constrained = 0.5 * (W['attractor'] + \
-                              tf.transpose(W['attractor'])) * \
-                                           (1.0 - tf.eye(N_HIDDEN))
+        W_attractor_constrained = (W['attractor'] + tf.transpose(W['attractor'])) \
+                                                  * .5 * (1.0 - tf.eye(N_HIDDEN)) \
+                                   + tf.diag(tf.abs(tf.diag_part(W['attractor'])))
     else:
         W_attractor_constrained = W['attractor']
     
@@ -216,12 +208,9 @@ def RNN_tanh(X, params):
         h_cleaned = tf.zeros(tf.shape(h_prev))
         for _ in range(N_ATTRACTOR_STEPS):
             h_cleaned = tf.matmul(tf.tanh(h_cleaned), W_attractor_constrained) \
-                                                            + h_net + b['attractor']
-        # add the linear transform at the end that seems to help
-        if (ATTR_OUTPUT_TRANSFORM):
-            h_cleaned = tf.matmul(tf.tanh(h_cleaned), W['aout']) + b['aout']
-        else:
-            h_cleaned = tf.tanh(h_cleaned)
+                                                + b['scale'] * h_net + b['attractor']
+        h_cleaned = tf.tanh(h_cleaned)
+
         return [h_cleaned, h_net]
 
     # X:                       (batch_size, SEQ_LEN, N_INPUT) 
@@ -250,9 +239,9 @@ def attractor_net_loss_function(attractor_tgt_net, params):
     W = params['W']
     b = params['b']
     if ATTR_WEIGHT_CONSTRAINTS:
-        W_attractor_constrained = 0.5 * (W['attractor'] + \
-                              tf.transpose(W['attractor'])) * \
-                                           (1.0 - tf.eye(N_HIDDEN))
+        W_attractor_constrained = (W['attractor'] + tf.transpose(W['attractor'])) \
+                                                  * .5 * (1.0 - tf.eye(N_HIDDEN)) \
+                                   + tf.diag(tf.abs(tf.diag_part(W['attractor'])))
     else:
         W_attractor_constrained = W['attractor']
 
@@ -262,11 +251,8 @@ def attractor_net_loss_function(attractor_tgt_net, params):
     a_cleaned = tf.zeros(tf.shape(attractor_tgt_net))
     for _ in range(N_ATTRACTOR_STEPS):
         a_cleaned = tf.matmul(tf.tanh(a_cleaned), W_attractor_constrained) \
-                                                     + input_bias + b['attractor']
-    if (ATTR_OUTPUT_TRANSFORM):
-        a_cleaned = tf.matmul(tf.tanh(a_cleaned), W['aout']) + b['aout']
-    else:
-        a_cleaned = tf.tanh(a_cleaned)
+                                             + b['scale'] * input_bias + b['attractor']
+    a_cleaned = tf.tanh(a_cleaned)
 
     # loss is % reduction in noise level
     attr_tgt = tf.tanh(attractor_tgt_net)
@@ -294,7 +280,7 @@ attr_loss_op = attractor_net_loss_function(attractor_tgt_net, params)
 
 # get list of all parameters except attractor weights
 params_attractor = [ params['W']['attractor'], params['b']['attractor'],
-                    params['W']['aout'], params['b']['aout'] ]
+                    params['b']['scale'] ]
 params_without_attractor = [params['W'][key] for key in params['W']] + \
                                    [params['b'][key] for key in params['b']]
 if (not ATTR_WEIGHTS_TRAINED_ON_PREDICTION):

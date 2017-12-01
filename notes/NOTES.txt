@@ -1,0 +1,10 @@
+project with Adi
+
+
+Pineda net
+Adi's first project will be to do superresolution with MNIST digits
+
+Example:
+Horses, Cows, Deer => Nilgai
+Nilgai: asian antelope  "blue cow"
+
