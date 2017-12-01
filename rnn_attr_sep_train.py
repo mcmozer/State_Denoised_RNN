@@ -12,7 +12,7 @@ N_INPUT = 1           # number of input units
 SEQ_LEN = 5           # number of bits in input sequence   
 N_HIDDEN = 5          # number of hidden units 
 N_CLASSES = 1         # number of output units
-ARCH = 'tanh'         # hidden layer type: 'GRU' or 'tanh'
+ARCH = 'GRU'         # hidden layer type: 'GRU' or 'tanh'
 NOISE_LEVEL = .25     # noise in training attractor net (std deviation)
 N_ATTRACTOR_STEPS = 5 # number of time steps in attractor dynamics
                       # REMEMBER: 1 step = no attractor net
@@ -118,8 +118,41 @@ def mozer_get_variable(vname, mat_dim):
     return var
 
 
+############### RUN_ATTRACTOR_NET #################################################
 
-######### BEGIN GRU ###############################################################
+def run_attractor_net(input_bias):
+
+    if (N_ATTRACTOR_STEPS > 0):
+        a_clean = tf.zeros(tf.shape(input_bias))
+        for i in range(N_ATTRACTOR_STEPS):
+            a_clean = tf.matmul(tf.tanh(a_clean), attr_net['Wconstr']) \
+                                        + attr_net['scale'] * input_bias + attr_net['b']
+        a_clean = tf.tanh(a_clean)
+    else:
+        a_clean = tf.tanh(input_bias)
+    return a_clean
+
+
+############### ATTRACTOR NET LOSS FUNCTION #####################################
+
+def attractor_net_loss_function(attractor_tgt_net, params):
+    # attractor_tgt_net has dimensions #examples X #hidden
+    #                   where the target value is tanh(attractor_tgt_net)
+
+    # clean-up for attractor net training
+    input_bias = attractor_tgt_net + NOISE_LEVEL \
+                                     * tf.random_normal(tf.shape(attractor_tgt_net))
+    a_cleaned = run_attractor_net(input_bias)
+
+    # loss is % reduction in noise level
+    attr_tgt = tf.tanh(attractor_tgt_net)
+    attr_loss = tf.reduce_mean(tf.pow(attr_tgt - a_cleaned,2)) / \
+                tf.reduce_mean(tf.pow(attr_tgt - tf.tanh(input_bias),2))
+
+    return attr_loss
+
+
+############### GRU ###############################################################
 
 def GRU_params_init():
     W = {'out': mozer_get_variable("W_out", [N_HIDDEN, N_CLASSES]),
@@ -159,17 +192,10 @@ def GRU(X, params):
                               b['stack'][N_HIDDEN*2:])
             h = z * h_prev + (1.0 - z) * c_cand
 
-            ##################################
-            # run attractor net
-            ##################################
-
+            # insert attractor net
             h_net = tf.atanh(tf.minimum(.99999, tf.maximum(-.99999, h))) 
+            h_cleaned = run_attractor_net(h_net)
 
-            h_cleaned = tf.zeros(tf.shape(h_prev))
-            for _ in range(N_ATTRACTOR_STEPS):
-                h_cleaned = tf.matmul(tf.tanh(h_cleaned), attr_net['Wconstr']) \
-                                            + attr_net['scale'] * h_net + attr_net['b']
-            h_cleaned = tf.tanh(h_cleaned)
             return [h_cleaned, h_net]
 
         # X:                       (batch_size, SEQ_LEN, N_HIDDEN) 
@@ -185,6 +211,7 @@ def GRU(X, params):
         return [out, h_net_seq]
 
 ######### END GRU #################################################################
+
 
 ######### BEGIN TANH RNN ########################################################
 
@@ -216,15 +243,8 @@ def RNN_tanh(X, params):
         # update the hidden state but don't apply the squashing function
         h_net = tf.matmul(h_prev, W['rec']) + tf.matmul(x, W['in']) + b['rec']
 
-        ##################################
-        # run attractor net
-        ##################################
-
-        h_cleaned = tf.zeros(tf.shape(h_prev))
-        for _ in range(N_ATTRACTOR_STEPS):
-            h_cleaned = tf.matmul(tf.tanh(h_cleaned), attr_net['Wconstr']) \
-                                        + attr_net['scale'] * h_net + attr_net['b']
-        h_cleaned = tf.tanh(h_cleaned)
+        # insert attractor net
+        h_cleaned = run_attractor_net(h_net)
 
         return [h_cleaned, h_net]
 
@@ -245,29 +265,6 @@ def RNN_tanh(X, params):
 
 ######### END TANH RNN ##########################################################
 
-######### BEGIN ATTRACTOR NET LOSS FUNCTION #####################################
-
-def attractor_net_loss_function(attractor_tgt_net, params):
-    # attractor_tgt_net has dimensions #examples X #hidden
-    #                   where the target value is tanh(attractor_tgt_net)
-
-    # clean-up for attractor net training
-    input_bias = attractor_tgt_net + NOISE_LEVEL \
-                                     * tf.random_normal(tf.shape(attractor_tgt_net))
-    a_cleaned = tf.zeros(tf.shape(attractor_tgt_net))
-    for _ in range(N_ATTRACTOR_STEPS):
-        a_cleaned = tf.matmul(tf.tanh(a_cleaned), attr_net['Wconstr']) \
-                                     + attr_net['scale'] * input_bias + attr_net['b']
-    a_cleaned = tf.tanh(a_cleaned)
-
-    # loss is % reduction in noise level
-    attr_tgt = tf.tanh(attractor_tgt_net)
-    attr_loss = tf.reduce_mean(tf.pow(attr_tgt - a_cleaned,2)) / \
-                tf.reduce_mean(tf.pow(attr_tgt - tf.tanh(input_bias),2))
-
-    return attr_loss
-
-######### END ATTRACTOR NET LOSS FUNCTION #######################################
 
 ######### MAIN CODE #############################################################
 tf.set_random_seed(100)
@@ -292,7 +289,7 @@ else:
 pred_loss_op = tf.reduce_mean(tf.pow(Y_ - Y, 2) / .25)
 attr_loss_op = attractor_net_loss_function(attractor_tgt_net, params)
 
-# get list of all parameters except attractor weights
+# separate out parameters to be optimized
 prediction_parameters = params['W'].values() + params['b'].values()
 attr_net_parameters = attr_net.values()
 attr_net_parameters.remove(attr_net['Wconstr']) # not a real parameter
@@ -342,15 +339,12 @@ with tf.Session() as sess:
                     # Optimize all parameters except for attractor weights
                     _, hid_vals = sess.run([pred_train_op, h_net_seq], 
                                            feed_dict={X: batch_x, Y: batch_y})
-                else:
-                    hid_vals = sess.run(h_net_seq, feed_dict={X: batch_x, Y: batch_y})
-                    sess.run(attr_train_op, feed_dict={attractor_tgt_net: 
-                                                   hid_vals.reshape(-1,N_HIDDEN)})
-
-                # Optimize attractor weights
-                if (LOSS_SWITCH_FREQ == 0):
-                    sess.run(attr_train_op, feed_dict={attractor_tgt_net: 
-                                                   hid_vals.reshape(-1,N_HIDDEN)})
+                if (LOSS_SWITCH_FREQ == 0 or not train_prediction_loss):
+                    if (N_ATTRACTOR_STEPS > 0):
+                        # Optimize attractor weights
+                        hid_vals = sess.run(h_net_seq, feed_dict={X: batch_x, Y: batch_y})
+                        sess.run(attr_train_op, feed_dict={attractor_tgt_net: 
+                                                       hid_vals.reshape(-1,N_HIDDEN)})
 
         print("Optimization Finished!")
         saved_acc.append(acc)
