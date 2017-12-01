@@ -1,3 +1,5 @@
+#!/usr/local/bin/python
+
 # This version of the code trains the attractor connections with a separate
 # objective function than the objective function used to train all other weights
 # in the network (on the prediction task).
@@ -6,31 +8,64 @@ from __future__ import print_function
 import itertools
 import tensorflow as tf
 import numpy as np
+import sys
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-arch',type=str,default='GRU',
+                    help='hidden layer type, GRU or tanh')
+parser.add_argument('-task',type=str,default='parity',
+                    help='task (parity, majority, reber)')
+parser.add_argument('-lrate_prediction',type=float,default=0.008,
+                    help='prediction task learning rate')
+parser.add_argument('-lrate_attractor',type=float,default=0.008,
+                    help='attractor task learning rate')
+parser.add_argument('-noise_level',type=float,default=0.25,
+                    help='attractor input noise std dev')
+parser.add_argument('-n_attractor_steps',type=int,default=5,
+                    help='number of attractor steps (0=no attractor net)')
+parser.add_argument('-seq_len',type=int,default=5,
+                    help='input sequence length')
+parser.add_argument('-n_hidden',type=int,default=5,
+                    help='number of recurrent hidden units')
+args=parser.parse_args()
+print(args)
 
 # Architecture Parameters
-N_INPUT = 1           # number of input units
-SEQ_LEN = 5           # number of bits in input sequence   
-N_HIDDEN = 5          # number of hidden units 
-N_CLASSES = 1         # number of output units
-ARCH = 'GRU'         # hidden layer type: 'GRU' or 'tanh'
-NOISE_LEVEL = .25     # noise in training attractor net (std deviation)
-N_ATTRACTOR_STEPS = 5 # number of time steps in attractor dynamics
-                      # REMEMBER: 1 step = no attractor net
+SEQ_LEN = args.seq_len# number of bits in input sequence   
+N_HIDDEN = args.n_hidden          
+                      # number of hidden units 
+ARCH = args.arch      # hidden layer type: 'GRU' or 'tanh'
+NOISE_LEVEL = args.noise_level
+                      # noise in training attractor net (std deviation)
+N_ATTRACTOR_STEPS = args.n_attractor_steps 
+                      # number of time steps in attractor dynamics
+                      # if = 0, then no attractor net
 ATTR_WEIGHT_CONSTRAINTS = True
                       # True: make attractor weights symmetric and have zero diag
                       # False: unconstrained
 ATTR_WEIGHTS_TRAINED_ON_PREDICTION = False
                       # True: train attractor weights on attractor net _and_ prediction
 
+TASK = args.task      # task (parity, majority, reber)
+if (TASK=='parity' or TASK=='majority'):
+    N_INPUT = 1           # number of input units
+    N_CLASSES = 1         # number of output units
+    N_TRAIN = pow(2,SEQ_LEN) # train on all seqs
+    N_TEST = pow(2,SEQ_LEN)
+else:
+    print('Invalid task: ',TASK)
+    quit()
+
+
 # Training Parameters
-training_epochs = 10000
-n_replications = 100
-batch_size = 16
-display_epoch = 200
-n_train = pow(2,SEQ_LEN) # train on all seqs
-n_test = pow(2,SEQ_LEN)
-LRATE_PREDICTION = 0.008
-LRATE_ATTRACTOR = 0.008 
+
+TRAINING_EPOCHS = 10000
+N_REPLICATIONS = 100
+BATCH_SIZE = 16
+DISPLAY_EPOCH = 200
+LRATE_PREDICTION = args.lrate_prediction
+LRATE_ATTRACTOR = args.lrate_attractor
 LOSS_SWITCH_FREQ = 0 # how often (in epochs) to switch between attractor and prediction loss
 
 
@@ -57,22 +92,26 @@ if ATTR_WEIGHT_CONSTRAINTS: # symmetric + nonnegative diagonal weight matrix
 else:
     attr_net['Wconstr'] = attr_net['W'] 
 
-################ generate_parity_sequences ##############################################
+################ generate_parity_majority_sequences #####################################
 
-def generate_parity_sequences(N, count):
+def generate_parity_majority_sequences(N, count):
     """
     Generate :count: sequences of length :N:.
     If odd # of 1's -> output 1
     else -> output 0
     """
     parity = lambda x: 1 if (x % 2 == 1) else 0
+    majority = lambda x: 1 if x > N/2 else 0
     if (count >= 2**N):
         sequences = np.asarray([seq for seq in itertools.product([0,1],repeat=N)])
     else:
         sequences = np.random.choice([0, 1], size=[count, N], replace=True)
     counts = np.count_nonzero(sequences == 1, axis=1)
     # parity each sequence, expand dimensions by 1 to match sequences shape
-    y = np.expand_dims(np.array([parity(x) for x in counts]), axis=1)
+    if (TASK == 'parity'):
+        y = np.expand_dims(np.array([parity(x) for x in counts]), axis=1)
+    else: # majority
+        y = np.expand_dims(np.array([majority(x) for x in counts]), axis=1)
 
     # In case if you wanted to have the answer just appended at the end of the sequence:
     #     # append the answer at the end of each sequence
@@ -270,9 +309,9 @@ def RNN_tanh(X, params):
 tf.set_random_seed(100)
 np.random.seed(100)
 
-X_train, Y_train = generate_parity_sequences(SEQ_LEN, n_train)
+X_train, Y_train = generate_parity_majority_sequences(SEQ_LEN, N_TRAIN)
 # BUG: need to generate distinct test and training sequences
-X_test, Y_test = generate_parity_sequences(SEQ_LEN, n_test)
+X_test, Y_test = generate_parity_majority_sequences(SEQ_LEN, N_TEST)
 
 # Define architecture graph
 if (ARCH == 'tanh'):
@@ -315,12 +354,12 @@ init = tf.global_variables_initializer()
 with tf.Session() as sess:
     saved_acc = []
     saved_epoch = []
-    for replication in range(n_replications):
+    for replication in range(N_REPLICATIONS):
         sess.run(init) # Run the initializer
 
         train_prediction_loss = True
-        for epoch in range(1, training_epochs + 2):
-            if (epoch-1) % display_epoch == 0:
+        for epoch in range(1, TRAINING_EPOCHS + 2):
+            if (epoch-1) % DISPLAY_EPOCH == 0:
                 ploss, acc, hid_vals = sess.run([pred_loss_op, accuracy, h_net_seq], 
                                              feed_dict={X: X_train, Y: Y_train})
                 aloss = sess.run(attr_loss_op,feed_dict={attractor_tgt_net: \
@@ -333,7 +372,7 @@ with tf.Session() as sess:
                    break
             if epoch > 1 and LOSS_SWITCH_FREQ > 0 and (epoch-1) % LOSS_SWITCH_FREQ == 0:
                train_prediction_loss = not train_prediction_loss
-            batches = get_batches(batch_size, X_train, Y_train)
+            batches = get_batches(BATCH_SIZE, X_train, Y_train)
             for (batch_x, batch_y) in batches:
                 if (LOSS_SWITCH_FREQ == 0 or train_prediction_loss):
                     # Optimize all parameters except for attractor weights
@@ -356,7 +395,7 @@ with tf.Session() as sess:
         # test performance
         if (0):
             accs = []
-            batches = get_batches(batch_size, X_test, Y_test)
+            batches = get_batches(BATCH_SIZE, X_test, Y_test)
             for batch in batches:
                 (batch_x, batch_y) = batch
                 acc = sess.run(accuracy, feed_dict={X: batch_x, Y: batch_y})
@@ -364,9 +403,9 @@ with tf.Session() as sess:
                 accs.append(acc)
             print("Testing Accuracy:", accuracy)
     print('********************************************************************')
-    print('arch',ARCH,'SEQ_LEN',SEQ_LEN, 'training_epochs',training_epochs,
+    print('arch',ARCH,'SEQ_LEN',SEQ_LEN, 'training_epochs',TRAINING_EPOCHS,
           'noise_level',NOISE_LEVEL,'n_attr_steps',N_ATTRACTOR_STEPS)
-    print ('lrate prediction','LRATE_PREDICTION',' lrate attractor ',LRATE_ATTRACTOR)
+    print ('lrate prediction',LRATE_PREDICTION,' lrate attractor ',LRATE_ATTRACTOR)
     print('mean accuracy', np.mean(saved_acc))
     print('indiv runs ',saved_acc)
     print('mean epoch', np.mean(saved_epoch))
