@@ -92,7 +92,7 @@ def generate_sequence(G, maxlen, out_of_grammar=False):
 
 
 # Reber's Grammar
-n = 6 # number of nodes
+#n = 6 # number of nodes
 edges = {0: [1, 3], 1: [1, 2], 2: [3, 5],
          3: [3, 4], 4: [2, 5], 5:[-1]} # Reber's grammar, -1 signals the end of sequence
 edge_to_value = {(0,1): "T",
@@ -105,14 +105,55 @@ edge_to_value = {(0,1): "T",
               (3,4): "V",
               (4,2): "P",
               (4,5): "V"}
-G = Grammar(edges, edge_to_value)
-unique_chars = list(set(G.edge_to_value.values()))  + ['B', 'E']
+G1 = Grammar(edges, edge_to_value)
+
+# Kazakov grammar
+#n = 7 # number of nodes
+edges2 = {0: [1, 5],
+         1: [0, 2, 4],
+         2: [2, 3, 7],
+         3: [1, 7],
+         4: [2, 5],
+         5: [5, 6],
+         6: [2, 4, 3],
+         7: [-1]}
+edge_to_value2 = {
+                (0,1): 'T',
+                (0,5): 'P',
+                (1,0): 'P',
+                (1,2): 'T',
+                (1,4): 'X',
+                (2,2): 'X',
+                (2,3): 'P',
+                (2,7): 'T',
+                (3,1): 'P',
+                (3,7): 'T',
+                (4,2): 'T',
+                (4,5): 'X',
+                (5,5): 'P',
+                (5,6): 'X',
+                (6,4): 'T',
+                (6,2): 'X',
+                (6,3): 'P'
+                }
+
+G2 = Grammar(edges2, edge_to_value2)
 
 
-def generate_grammar_dataset(seq_len,N):
+
+def generate_grammar_dataset(grammar_ix, seq_len, N):
     """"
     generates :N: sequeces for either train or test set half in grammer half out
     """
+
+    if (grammar_ix == 1):
+        G = G1
+    elif (grammar_ix == 2):
+        G = G2
+    else:
+        print('ERROR: invalid grammar index')
+        quit()
+
     unique_chars = list(set(G.edge_to_value.values()))  + ['B', 'E'] # plus begining and end symbols
     # convert everything to indeces range(len(unique_chars))
     char_to_index = {letter: i for i, letter in enumerate(unique_chars)}
@@ -140,7 +181,7 @@ def generate_grammar_dataset(seq_len,N):
            unique_chars
 
 
-def embed_one_hot(batch_array, depth=len(unique_chars)):
+def embed_one_hot(batch_array, depth):
     """
     :batch_array: gets shaped into one-hot vectors of :depth:
     * :batch_array: needs to start being indexed from 0 for its elements.

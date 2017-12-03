@@ -1,5 +1,7 @@
 #!/usr/local/bin/python
 
+# DEBUG VERSION WITH ATTR NET INITIALIZED TO NET INPUT
+
 # This version of the code trains the attractor connections with a separate
 # objective function than the objective function used to train all other weights
 # in the network (on the prediction task).
@@ -10,13 +12,13 @@ import tensorflow as tf
 import numpy as np
 import sys
 import argparse
-import fsm_reber as fsm
+import fsm
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-arch',type=str,default='GRU',
                     help='hidden layer type, GRU or tanh')
 parser.add_argument('-task',type=str,default='parity',
-                    help='task (parity, majority, reber)')
+                    help='task (parity, majority, reber, kazakov)')
 parser.add_argument('-lrate_prediction',type=float,default=0.008,
                     help='prediction task learning rate')
 parser.add_argument('-lrate_attractor',type=float,default=0.008,
@@ -40,6 +42,11 @@ parser.add_argument('-train_attr_weights_on_prediction',
 parser.add_argument('-no-train_attr_weights_on_prediction',
                     dest='train_attr_weights_on_prediction', action='store_false')
 parser.set_defaults(train_attr_weights_on_prediction=False)
+parser.add_argument('-report_best_train_performance',
+                    dest='report_best_train_performance', action='store_true')
+parser.add_argument('-no-report_best_train_performance',
+                    dest='report_best_train_performance', action='store_false')
+parser.set_defaults(report_best_train_performance=False)
 
 # NOT YET IMPLEMENTED
 #parser.add_argument('-attractor_train_delay',type=int,default=100,
@@ -63,8 +70,10 @@ ATTR_WEIGHT_CONSTRAINTS = True
                       # False: unconstrained
 TRAIN_ATTR_WEIGHTS_ON_PREDICTION = args.train_attr_weights_on_prediction
                       # True: train attractor weights on attractor net _and_ prediction
+REPORT_BEST_TRAIN_PERFORMANCE = args.report_best_train_performance
+                      # True: save the train/test perf on the epoch for which train perf was best
 
-TASK = args.task      # task (parity, majority, reber)
+TASK = args.task      # task (parity, majority, reber, kazakov)
 if (TASK=='parity'):
     N_INPUT = 1           # number of input units
     N_CLASSES = 1         # number of output units
@@ -79,6 +88,11 @@ elif (TASK=='reber'):
     N_INPUT = 7 # B E P S T V X
     N_CLASSES = 1
     N_TRAIN = 200
+    N_TEST = 2000
+elif (TASK=='kazakov'):
+    N_INPUT = 5
+    N_CLASSES = 1
+    N_TRAIN = 400
     N_TEST = 2000
 else:
     print('Invalid task: ',TASK)
@@ -136,8 +150,11 @@ def generate_examples():
         X_train = X_train[pix[:N_TRAIN],:]
         Y_train = Y_train[pix[:N_TRAIN],:]
     elif (TASK == 'reber'):
-        _, Y_train, X_train, _ = fsm.generate_grammar_dataset(SEQ_LEN, N_TRAIN)
-        _, Y_test, X_test, _ = fsm.generate_grammar_dataset(SEQ_LEN, N_TEST)
+        _, Y_train, X_train, _ = fsm.generate_grammar_dataset(1, SEQ_LEN, N_TRAIN)
+        _, Y_test, X_test, _ = fsm.generate_grammar_dataset(1, SEQ_LEN, N_TEST)
+    elif (TASK == 'kazakov'):
+        _, Y_train, X_train, _ = fsm.generate_grammar_dataset(2, SEQ_LEN, N_TRAIN)
+        _, Y_test, X_test, _ = fsm.generate_grammar_dataset(2, SEQ_LEN, N_TEST)
 
     return [X_train, Y_train, X_test, Y_test]
 
@@ -211,7 +228,7 @@ def mozer_get_variable(vname, mat_dim):
 def run_attractor_net(input_bias):
 
     if (N_ATTRACTOR_STEPS > 0):
-        a_clean = tf.zeros(tf.shape(input_bias))
+        a_clean = tf.zeros(tf.shape(input_bias)) 
         for i in range(N_ATTRACTOR_STEPS):
             a_clean = tf.matmul(tf.tanh(a_clean), attr_net['Wconstr']) \
                                         + attr_net['scale'] * input_bias + attr_net['b']
@@ -401,6 +418,7 @@ with tf.Session() as sess:
     saved_epoch = []
     # Start training
     for replication in range(N_REPLICATIONS):
+        print("********** replication ", replication," **********")
         sess.run(init) # Run the initializer
         if (0):
            writer = tf.summary.FileWriter("./tf.log",sess.graph)
@@ -409,6 +427,8 @@ with tf.Session() as sess:
         [X_train, Y_train, X_test, Y_test] = generate_examples()
 
         train_prediction_loss = True
+        best_train_acc = -1000.
+        best_test_acc = 0
         for epoch in range(1, TRAINING_EPOCHS + 2):
             if (epoch-1) % DISPLAY_EPOCH == 0:
                 ploss, train_acc, hid_vals = sess.run([pred_loss_op, accuracy, h_net_seq],
@@ -423,6 +443,9 @@ with tf.Session() as sess:
                           "{:.4f}".format(aloss) + ", Train Acc= " + \
                           "{:.3f}".format(train_acc) + ", Test Acc= " + \
                           "{:.3f}".format(test_acc))
+                if (train_acc > best_train_acc):
+                   best_train_acc = train_acc
+                   best_test_acc = test_acc
                 if (train_acc == 1.0):
                    break
             if epoch > 1 and LOSS_SWITCH_FREQ > 0 and (epoch-1) % LOSS_SWITCH_FREQ == 0:
@@ -441,8 +464,12 @@ with tf.Session() as sess:
                                                        hid_vals.reshape(-1,N_HIDDEN)})
 
         print("Optimization Finished!")
-        saved_train_acc.append(train_acc)
-        saved_test_acc.append(test_acc)
+        if (REPORT_BEST_TRAIN_PERFORMANCE):
+            saved_train_acc.append(best_train_acc)
+            saved_test_acc.append(best_test_acc)
+        else:
+            saved_train_acc.append(train_acc)
+            saved_test_acc.append(test_acc)
         if (train_acc == 1.0):
             saved_epoch.append(epoch)
 
