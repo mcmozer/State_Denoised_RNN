@@ -1,5 +1,7 @@
 #!/usr/local/bin/python
 
+# DEBUG VERSION WITH ATTR NET INITIALIZED TO NET INPUT
+
 # This version of the code trains the attractor connections with a separate
 # objective function than the objective function used to train all other weights
 # in the network (on the prediction task).
@@ -211,7 +213,8 @@ def mozer_get_variable(vname, mat_dim):
 def run_attractor_net(input_bias):
 
     if (N_ATTRACTOR_STEPS > 0):
-        a_clean = tf.zeros(tf.shape(input_bias))
+        #a_clean = tf.zeros(tf.shape(input_bias)) <<<<<<<<<<<<< DEBUG >>>>>>>>>>>>>>>
+        a_clean = input_bias
         for i in range(N_ATTRACTOR_STEPS):
             a_clean = tf.matmul(tf.tanh(a_clean), attr_net['Wconstr']) \
                                         + attr_net['scale'] * input_bias + attr_net['b']

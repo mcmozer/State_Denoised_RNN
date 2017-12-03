@@ -38,7 +38,7 @@ def in_grammar(seq, G):
 
     return True
 
-def generate_sequence(G, out_of_grammar=False):
+def generate_sequence(G, maxlen, out_of_grammar=False):
     """
     Generate sequence from grammar :G:,
                         TODO: not sure how much to deviate by
@@ -46,43 +46,47 @@ def generate_sequence(G, out_of_grammar=False):
                       out of grammar :G: by a small deviation (1 symbol)
     """
 
-    string = ""
-    curr_node = 0
+    done = False
+    while not done:
+        string = ""
+        curr_node = 0
 
-    sample_next_node = lambda curr_node: G.edges[curr_node][np.random.randint(0, len(G.edges[curr_node]))] # uniform choice across all possible edges
-    next_node = sample_next_node(curr_node)
-
-    while next_node != -1:
-        taken_edge = (curr_node, next_node)
-        curr_node = next_node
-        string += G.edge_to_value[taken_edge]
+        sample_next_node = lambda curr_node: G.edges[curr_node][np.random.randint(0, len(G.edges[curr_node]))] # uniform choice across all possible edges
         next_node = sample_next_node(curr_node)
 
-    if out_of_grammar:
-        # generate ouf of grammar deviation
-        success = False
-        letters = list(set(G.edge_to_value.values())) # possible letters we could have assigned
-        new_string = None
-        while not success:
-            new_string = string
-            index = np.random.randint(0, len(new_string))
+        while next_node != -1:
+            taken_edge = (curr_node, next_node)
+            curr_node = next_node
+            string += G.edge_to_value[taken_edge]
+            next_node = sample_next_node(curr_node)
 
-            # choose a different letter than is already in place
-            substitute_letter = letters[np.random.randint(0, len(letters))]
-            while substitute_letter == new_string[index]:
+        if out_of_grammar:
+            # generate ouf of grammar deviation
+            success = False
+            letters = list(set(G.edge_to_value.values())) # possible letters we could have assigned
+            new_string = None
+            while not success:
+                new_string = string
+                index = np.random.randint(0, len(new_string))
+
+                # choose a different letter than is already in place
                 substitute_letter = letters[np.random.randint(0, len(letters))]
+                while substitute_letter == new_string[index]:
+                    substitute_letter = letters[np.random.randint(0, len(letters))]
 
-            # put substitute letter where original one was
-            new_string = new_string[0:(index-1)] + substitute_letter + new_string[index:]
+                # put substitute letter where original one was
+                new_string = new_string[0:(index-1)] + substitute_letter + new_string[index:]
 
-            # success if the altered new_string is not in grammar :G:
-            success = not in_grammar(new_string, G)
+                # success if the altered new_string is not in grammar :G:
+                success = not in_grammar(new_string, G)
 
-        # done, assign altered string to the original
-        string = new_string
+            # done, assign altered string to the original
+            string = new_string
 
-    # add beginning and end
-    string = "B" + string + "E"
+        # add beginning and end
+        string = "B" + string + "E"
+
+        done = True if (len(string) <= maxlen) else False
     return string
 
 
@@ -104,49 +108,35 @@ edge_to_value = {(0,1): "T",
 G = Grammar(edges, edge_to_value)
 unique_chars = list(set(G.edge_to_value.values()))  + ['B', 'E']
 
-# make dataset
-def generate_grammar_dataset(N):
+
+def generate_grammar_dataset(seq_len,N):
     """"
-    generates :N: sequeces for both test/train half in grammer half out
-    generate both test and train simultaneously so that we can pad both test
-    and train to the longest sequence in both.
+    generates :N: sequeces for either train or test set half in grammer half out
     """
     unique_chars = list(set(G.edge_to_value.values()))  + ['B', 'E'] # plus begining and end symbols
     # convert everything to indeces range(len(unique_chars))
     char_to_index = {letter: i for i, letter in enumerate(unique_chars)}
     convert_to_indices = lambda seq: [char_to_index[el] for el in seq]
 
-    x_train = [generate_sequence(G) for i in range(N/2)]
-    x_test = [generate_sequence(G) for i in range(N/2)]
-    y_train = [1 for i in range(N/2)]
-    y_test = [1 for i in range(N/2)]
-    x_train += [generate_sequence(G, out_of_grammar=True) for i in range(N / 2)]
-    x_test += [generate_sequence(G, out_of_grammar=True) for i in range(N / 2)]
-    y_train += [0 for i in range(N / 2)]
-    y_test += [0 for i in range(N / 2)]
+    x = [generate_sequence(G, seq_len) for i in range(N/2)]
+    y = [1 for i in range(N/2)]
+    x += [generate_sequence(G, seq_len, out_of_grammar=True) for i in range(N/2)]
+    y += [0 for i in range(N / 2)]
 
     # pad all sequences to be as long as the longest sequence generated
-    merged_set = x_train + x_test
-    maxlen = len(max(x_train + x_test, key=lambda x: len(x)))
-    for i, seq in enumerate(merged_set):
+    #seq_len = len(max(x, key=lambda x: len(x)))
+    for i, seq in enumerate(x):
         # pad with "B"'s in the beginning
-        seq = "B"*(maxlen - len(seq)) + seq
-        merged_set[i] = seq
-    x_train, x_test = merged_set[0:N], merged_set[N:]
+        seq = "B"*(seq_len - len(seq)) + seq
+        x[i] = seq
 
     # convert only after all padding is done
-    x_train_indices = [convert_to_indices(seq) for seq in x_train]
-    x_test_indices = [convert_to_indices(seq) for seq in x_test]
+    x_indices = [convert_to_indices(seq) for seq in x]
 
-    x_train_one_hot = embed_one_hot(x_train_indices, len(unique_chars))
-    x_test_one_hot = embed_one_hot(x_test_indices, len(unique_chars))
-    return x_train, \
-           np.expand_dims(y_train, axis=1), \
-           x_test, \
-           np.expand_dims(y_test, axis=1), \
-           x_train_one_hot, \
-           x_test_one_hot, \
-           maxlen, \
+    x_one_hot = embed_one_hot(x_indices, len(unique_chars))
+    return x, \
+           np.expand_dims(y, axis=1), \
+           x_one_hot, \
            unique_chars
 
 
@@ -163,6 +153,3 @@ def embed_one_hot(batch_array, depth=len(unique_chars)):
     for i,array in enumerate(batch_array):
         one_hot_matrix[i, np.arange(len(array)), array] = 1
     return one_hot_matrix
-
-
-x_train, y_train, x_test, y_test, x_train_one_hot, x_test_one_hot, maxlen, unique_chars = generate_grammar_dataset(2)
