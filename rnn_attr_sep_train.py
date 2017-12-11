@@ -472,6 +472,7 @@ with tf.Session() as sess:
             saved_test_acc.append(test_acc)
         if (train_acc == 1.0):
             saved_epoch.append(epoch)
+        print(saved_test_acc) # DEBUG
 
         # print weights
         #for p in attr_net.values():
