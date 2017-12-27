@@ -123,13 +123,16 @@ attractor_tgt_net = tf.placeholder("float", [None, N_HIDDEN])
 attr_net = {
      'W': tf.get_variable("attractor_W", initializer=.01*tf.random_normal([N_HIDDEN,N_HIDDEN])),
      'b': tf.get_variable("attractor_b", initializer=.01*tf.random_normal([N_HIDDEN])),
-     'scale': tf.get_variable("attractor_scale", initializer=tf.ones([1]))
+     'scale': tf.get_variable("attractor_scale", initializer=.01*tf.ones([1]))
      }
 
 if ATTR_WEIGHT_CONSTRAINTS: # symmetric + nonnegative diagonal weight matrix
-    attr_net['Wconstr'] = (attr_net['W'] + tf.transpose(attr_net['W'])) \
-                                              * .5 * (1.0 - tf.eye(N_HIDDEN)) \
-                               + tf.diag(tf.abs(tf.diag_part(attr_net['W'])))
+    Wdiag = tf.matrix_band_part(attr_net['W'],0,0) # diagonal
+    Wlowdiag = tf.matrix_band_part(attr_net['W'], -1, 0) - Wdiag # lower diagonal
+    attr_net['Wconstr'] = Wlowdiag + tf.transpose(Wlowdiag) + tf.abs(Wdiag)
+    #attr_net['Wconstr'] = .5 * (attr_net['W'] + tf.transpose(attr_net['W'])) * \
+    #                      (1.0-tf.eye(N_HIDDEN)) + tf.abs(tf.matrix_band_part(attr_net['W'],0,0))
+
 else:
     attr_net['Wconstr'] = attr_net['W'] 
 
@@ -472,7 +475,6 @@ with tf.Session() as sess:
             saved_test_acc.append(test_acc)
         if (train_acc == 1.0):
             saved_epoch.append(epoch)
-        print(saved_test_acc) # DEBUG
 
         # print weights
         #for p in attr_net.values():
