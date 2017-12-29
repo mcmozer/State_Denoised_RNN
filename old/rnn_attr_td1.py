@@ -1,7 +1,5 @@
 #!/usr/local/bin/python
 
-# DEBUG VERSION WITH ATTR NET INITIALIZED TO NET INPUT
-
 # This version of the code trains the attractor connections with a separate
 # objective function than the objective function used to train all other weights
 # in the network (on the prediction task).
@@ -24,7 +22,7 @@ parser.add_argument('-lrate_prediction',type=float,default=0.008,
 parser.add_argument('-lrate_attractor',type=float,default=0.008,
                     help='attractor task learning rate')
 parser.add_argument('-noise_level',type=float,default=0.25,
-                    help='attractor input noise std dev')
+                    help='attractor input noise (+ = Gauss std dev, - = % removed')
 parser.add_argument('-n_attractor_steps',type=int,default=5,
                     help='number of attractor steps (0=no attractor net)')
 parser.add_argument('-seq_len',type=int,default=5,
@@ -61,7 +59,11 @@ N_HIDDEN = args.n_hidden
                       # number of hidden units 
 ARCH = args.arch      # hidden layer type: 'GRU' or 'tanh'
 NOISE_LEVEL = args.noise_level
-                      # noise in training attractor net (std deviation)
+                      # noise in training attractor net 
+                      # if >=0, Gaussian with std dev NOISE_LEVEL 
+                      # if < 0, Bernoulli dropout proportion -NOISE_LEVEL 
+INPUT_NOISE_LEVEL = .1
+
 N_ATTRACTOR_STEPS = args.n_attractor_steps 
                       # number of time steps in attractor dynamics
                       # if = 0, then no attractor net
@@ -120,6 +122,9 @@ Y = tf.placeholder("float", [None, N_CLASSES])
 attractor_tgt_net = tf.placeholder("float", [None, N_HIDDEN])
 
 # attr net weights
+# NOTE: i tried setting attractor_W = attractor_b = 0 and attractor_scale=1.0
+# which is the default "no attractor" model, but that doesn't learn as well as
+# randomizing initial weights
 attr_net = {
      'W': tf.get_variable("attractor_W", initializer=.01*tf.random_normal([N_HIDDEN,N_HIDDEN])),
      'b': tf.get_variable("attractor_b", initializer=.01*tf.random_normal([N_HIDDEN])),
@@ -142,16 +147,19 @@ def generate_examples():
 
     if (TASK == 'parity'):
         X_train, Y_train = generate_parity_majority_sequences(SEQ_LEN, N_TRAIN)
-        # BUG: need to generate distinct test and training sequences
         X_test, Y_test = generate_parity_majority_sequences(SEQ_LEN, N_TEST)
+        if (INPUT_NOISE_LEVEL > 0.):
+           X_test, Y_test = add_input_noise(INPUT_NOISE_LEVEL,X_test,Y_test,2)
     # for majority, split all sequences into training and test sets
     elif (TASK == 'majority'):
         X_train, Y_train = generate_parity_majority_sequences(SEQ_LEN, N_TRAIN+N_TEST)
         pix = np.random.permutation(N_TRAIN+N_TEST)
-        X_test = X_train[pix[N_TRAIN:],:]
-        Y_test = Y_train[pix[N_TRAIN:],:]
         X_train = X_train[pix[:N_TRAIN],:]
         Y_train = Y_train[pix[:N_TRAIN],:]
+        X_test = X_train[pix[N_TRAIN:],:]
+        Y_test = Y_train[pix[N_TRAIN:],:]
+        if (INPUT_NOISE_LEVEL > 0.):
+           X_test, Y_test = add_input_noise(INPUT_NOISE_LEVEL,X_test,Y_test,1)
     elif (TASK == 'reber'):
         _, Y_train, X_train, _ = fsm.generate_grammar_dataset(1, SEQ_LEN, N_TRAIN)
         _, Y_test, X_test, _ = fsm.generate_grammar_dataset(1, SEQ_LEN, N_TEST)
@@ -160,6 +168,16 @@ def generate_examples():
         _, Y_test, X_test, _ = fsm.generate_grammar_dataset(2, SEQ_LEN, N_TEST)
 
     return [X_train, Y_train, X_test, Y_test]
+
+################ add_input_noise ########################################################
+# incorporate input noise into the test patterns
+
+def add_input_noise(noise_level, X, Y, n_repeat):
+# X: # examples X # sequence elements X #inputs
+    X = np.repeat(X, n_repeat, axis=0)
+    Y = np.repeat(Y, n_repeat, axis=0)
+    X = X + (np.random.random(X.shape)*2.0-1.0) * noise_level
+    return X,Y
 
 ################ generate_parity_majority_sequences #####################################
 
@@ -233,12 +251,25 @@ def run_attractor_net(input_bias):
     if (N_ATTRACTOR_STEPS > 0):
         a_clean = tf.zeros(tf.shape(input_bias)) 
         for i in range(N_ATTRACTOR_STEPS):
-            a_clean = tf.matmul(tf.tanh(a_clean), attr_net['Wconstr']) \
-                                        + attr_net['scale'] * input_bias + attr_net['b']
-        a_clean = tf.tanh(a_clean)
+            a_clean = tf.tanh(tf.matmul(a_clean, attr_net['Wconstr']) \
+                                + attr_net['scale'] * input_bias + attr_net['b'])
     else:
         a_clean = tf.tanh(input_bias)
     return a_clean
+
+def run_attractor_net_td1(input_bias, attr_tgt):
+
+    attr_loss = 0.
+    if (N_ATTRACTOR_STEPS > 0):
+        a_clean = tf.zeros(tf.shape(input_bias)) 
+        for i in range(N_ATTRACTOR_STEPS):
+            a_clean = tf.tanh(tf.matmul(a_clean, attr_net['Wconstr']) \
+                                + attr_net['scale'] * input_bias + attr_net['b'])
+            attr_loss = attr_loss + tf.reduce_mean(tf.pow(attr_tgt-a_clean,2))
+    else:
+        a_clean = tf.tanh(input_bias)
+
+    return a_clean, attr_loss
 
 
 ############### ATTRACTOR NET LOSS FUNCTION #####################################
@@ -248,16 +279,22 @@ def attractor_net_loss_function(attractor_tgt_net, params):
     #                   where the target value is tanh(attractor_tgt_net)
 
     # clean-up for attractor net training
-    input_bias = attractor_tgt_net + NOISE_LEVEL \
-                                     * tf.random_normal(tf.shape(attractor_tgt_net))
-    a_cleaned = run_attractor_net(input_bias)
+    if (NOISE_LEVEL >= 0.0): # Gaussian mean-zero noise
+        input_bias = attractor_tgt_net + NOISE_LEVEL \
+                                 * tf.random_normal(tf.shape(attractor_tgt_net))
+    else: # Bernoulli dropout
+        input_bias = attractor_tgt_net * \
+                tf.cast((tf.random_uniform(tf.shape(attractor_tgt_net)) \
+                                                  >= -NOISE_LEVEL),tf.float32)
+
+    attr_tgt = tf.tanh(attractor_tgt_net)
+    a_cleaned, attr_loss = run_attractor_net_td1(input_bias, attr_tgt)
 
     # loss is % reduction in noise level
-    attr_tgt = tf.tanh(attractor_tgt_net)
-    attr_loss = tf.reduce_mean(tf.pow(attr_tgt - a_cleaned,2)) / \
+    attr_loss = attr_loss / float(N_ATTRACTOR_STEPS) /\
                 tf.reduce_mean(tf.pow(attr_tgt - tf.tanh(input_bias),2))
 
-    return attr_loss
+    return attr_loss, input_bias
 
 
 ############### GRU ###############################################################
@@ -391,7 +428,8 @@ else:
 
 # Define loss graphs
 pred_loss_op = tf.reduce_mean(tf.pow(Y_ - Y, 2) / .25)
-attr_loss_op = attractor_net_loss_function(attractor_tgt_net, params)
+attr_loss_op, input_bias = \
+           attractor_net_loss_function(attractor_tgt_net, params)
 
 # separate out parameters to be optimized
 prediction_parameters = params['W'].values() + params['b'].values()
@@ -438,9 +476,8 @@ with tf.Session() as sess:
                                              feed_dict={X: X_train, Y: Y_train})
                 aloss = sess.run(attr_loss_op,feed_dict={attractor_tgt_net: \
                                                            hid_vals.reshape(-1,N_HIDDEN)})
-                test_acc = 0;
-                if (not (TASK == 'parity')): 
-                    test_acc = sess.run(accuracy, feed_dict={X: X_test, Y: Y_test})
+                #print(hid_vals.reshape(-1,N_HIDDEN)[:,:])
+                test_acc = sess.run(accuracy, feed_dict={X: X_test, Y: Y_test})
                 print("epoch " + str(epoch-1) + ", Loss Pred " + \
                           "{:.4f}".format(ploss) + ", Loss Att " + \
                           "{:.4f}".format(aloss) + ", Train Acc= " + \
@@ -479,7 +516,6 @@ with tf.Session() as sess:
         # print weights
         #for p in attr_net.values():
         #    print (p.name, ' ', p.eval())
-        # test performance
     print('********************************************************************')
     print(args)
     print('********************************************************************')
