@@ -33,6 +33,8 @@ parser.add_argument('-display_epoch',type=int,default=200,
                     help='frequency of displaying training results')
 parser.add_argument('-training_epochs',type=int,default=10000,
                     help='number of training epochs')
+parser.add_argument('-loss_switch_frequency',type=int,default=0,
+                    help='frequency (in epochs) of switching between losses')
 parser.add_argument('-n_replications',type=int,default=100,
                     help='number of replications')
 parser.add_argument('-train_attr_weights_on_prediction',
@@ -74,6 +76,9 @@ TRAIN_ATTR_WEIGHTS_ON_PREDICTION = args.train_attr_weights_on_prediction
                       # True: train attractor weights on attractor net _and_ prediction
 REPORT_BEST_TRAIN_PERFORMANCE = args.report_best_train_performance
                       # True: save the train/test perf on the epoch for which train perf was best
+LOSS_SWITCH_FREQ = args.loss_switch_frequency 
+                      # how often (in epochs) to switch between attractor 
+                      # and prediction loss
 
 TASK = args.task      # task (parity, majority, reber, kazakov)
 if (TASK=='parity'):
@@ -109,7 +114,6 @@ BATCH_SIZE = 16
 DISPLAY_EPOCH = args.display_epoch
 LRATE_PREDICTION = args.lrate_prediction
 LRATE_ATTRACTOR = args.lrate_attractor
-LOSS_SWITCH_FREQ = 0 # how often (in epochs) to switch between attractor and prediction loss
 
 
 ################ GLOBAL VARIABLES #######################################################
@@ -475,7 +479,8 @@ with tf.Session() as sess:
                    best_test_acc = test_acc
                 if (train_acc == 1.0):
                    break
-            if epoch > 1 and LOSS_SWITCH_FREQ > 0 and (epoch-1) % LOSS_SWITCH_FREQ == 0:
+            if epoch > 1 and LOSS_SWITCH_FREQ > 0 \
+                         and (epoch-1) % LOSS_SWITCH_FREQ == 0:
                train_prediction_loss = not train_prediction_loss
             batches = get_batches(BATCH_SIZE, X_train, Y_train)
             for (batch_x, batch_y) in batches:

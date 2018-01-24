@@ -1,0 +1,8 @@
+rnn_attr.py - has the code to run the recurrent net with an integrated
+              attractor net
+
+
+sc          - a script file that has templates for running various
+              simulations
+
+
