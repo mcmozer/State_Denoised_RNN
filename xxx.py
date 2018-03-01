@@ -156,13 +156,13 @@ attractor_tgt_net = tf.placeholder("float", [None, N_HIDDEN])
 # randomizing initial weights
 attr_net = {
      'Win': tf.get_variable("attractor_Win", 
-                            initializer=tf.eye(N_HIDDEN,num_columns=N_ATTRACTOR_HIDDEN) + 
-                                    .01*tf.random_normal([N_HIDDEN,N_ATTRACTOR_HIDDEN])),
+                            initializer=.01*tf.random_normal([N_HIDDEN,N_ATTRACTOR_HIDDEN])),
+                            # DEBUG -- removed eye
      'W': tf.get_variable("attractor_Whid", 
                           initializer=.01*tf.random_normal([N_ATTRACTOR_HIDDEN,N_ATTRACTOR_HIDDEN])),
      'Wout': tf.get_variable("attractor_Wout", 
-                            initializer=tf.eye(N_ATTRACTOR_HIDDEN,num_columns=N_HIDDEN) + 
-                                    .01*tf.random_normal([N_ATTRACTOR_HIDDEN,N_HIDDEN])),
+                            initializer=.01*tf.random_normal([N_ATTRACTOR_HIDDEN,N_HIDDEN])),
+                            # DEBUG -- removed eye
      'bin': tf.get_variable("attractor_bin", initializer=.01*tf.random_normal([N_ATTRACTOR_HIDDEN])),
      'bout': tf.get_variable("attractor_bout", initializer=.01*tf.random_normal([N_HIDDEN])),
      }
@@ -288,17 +288,20 @@ def run_attractor_net(input_state):
     if (N_ATTRACTOR_STEPS > 0):
 
         if (LATENT_ATTRACTOR_SPACE):
-            transformed_input_state = attr_net['bin'] + tf.matmul(input_state, attr_net['Win'])
+            # DEBUG: squashed input_state
+            transformed_input_state = attr_net['bin'] + tf.matmul(tf.tanh(input_state), attr_net['Win'])
         else:
-            transformed_input_state = attr_net['bin'] + attr_net['Win'][0,0] * input_state 
+            # DEBUG: squashed input_state
+            transformed_input_state = attr_net['bin'] + attr_net['Win'][0,0] * tf.tanh(input_state)
 
         a = tf.zeros(tf.shape(transformed_input_state)) 
         for i in range(N_ATTRACTOR_STEPS):
-            a = tf.matmul(tf.tanh(a), attr_net['Wconstr']) + transformed_input_state
+            a = tf.tanh(tf.matmul(a, attr_net['Wconstr']) + transformed_input_state)
         if (LATENT_ATTRACTOR_SPACE):
-            a_clean = tf.tanh(attr_net['bout'] + tf.matmul(a,attr_net['Wout']))
+            a_clean = tf.tanh(attr_net['bout'] + tf.matmul(a,attr_net['Wout']) + input_state)
+            # DEBUG -- added "+ input_state"
         else:
-            a_clean = tf.tanh(a)
+            a_clean = tf.tanh(a + input_state) # DEBUG -- added "+ input_state"
     else:
         a_clean = tf.tanh(input_state)
     return a_clean

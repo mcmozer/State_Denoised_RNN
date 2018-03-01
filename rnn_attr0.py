@@ -11,15 +11,9 @@ import numpy as np
 import sys
 import argparse
 import fsm
-import random
-
-# need to set tf seed before defining any tf variables
-tf.set_random_seed(100)
-random.seed(100)
-np.random.seed(100)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-arch',type=str,default='tanh',
+parser.add_argument('-arch',type=str,default='GRU',
                     help='hidden layer type, GRU or tanh')
 parser.add_argument('-task',type=str,default='parity',
                     help='task (parity, majority, reber, kazakov)')
@@ -35,8 +29,6 @@ parser.add_argument('-seq_len',type=int,default=5,
                     help='input sequence length')
 parser.add_argument('-n_hidden',type=int,default=5,
                     help='number of recurrent hidden units')
-parser.add_argument('-n_attractor_hidden',type=int,default=-1,
-                    help='number of attractor net hidden units')
 parser.add_argument('-display_epoch',type=int,default=200,
                     help='frequency of displaying training results')
 parser.add_argument('-training_epochs',type=int,default=10000,
@@ -45,8 +37,6 @@ parser.add_argument('-loss_switch_frequency',type=int,default=0,
                     help='frequency (in epochs) of switching between losses')
 parser.add_argument('-n_replications',type=int,default=100,
                     help='number of replications')
-parser.add_argument('-input_noise_level',type=float,default=0.100,
-                    help='noise level for test examples (parity, majority)')
 parser.add_argument('-train_attr_weights_on_prediction',
                     dest='train_attr_weights_on_prediction', action='store_true')
 parser.add_argument('-no-train_attr_weights_on_prediction',
@@ -54,15 +44,9 @@ parser.add_argument('-no-train_attr_weights_on_prediction',
 parser.set_defaults(train_attr_weights_on_prediction=False)
 parser.add_argument('-report_best_train_performance',
                     dest='report_best_train_performance', action='store_true')
-parser.add_argument('-no_report_best_train_performance',
+parser.add_argument('-no-report_best_train_performance',
                     dest='report_best_train_performance', action='store_false')
 parser.set_defaults(report_best_train_performance=False)
-
-parser.add_argument('-latent_attractor_space',
-                    dest='latent_attractor_space', action='store_true')
-parser.add_argument('-no_latent_attractor_space',
-                    dest='latent_attractor_space', action='store_false')
-parser.set_defaults(latent_attractor_space=True)
 
 # NOT YET IMPLEMENTED
 #parser.add_argument('-attractor_train_delay',type=int,default=100,
@@ -75,18 +59,13 @@ print(args)
 SEQ_LEN = args.seq_len# number of bits in input sequence   
 N_HIDDEN = args.n_hidden          
                       # number of hidden units 
-N_ATTRACTOR_HIDDEN = args.n_attractor_hidden
-                      # number of internal attractor net units
-if N_ATTRACTOR_HIDDEN < 0:
-    N_ATTRACTOR_HIDDEN = N_HIDDEN # attractor net state space non-expanding
-
 ARCH = args.arch      # hidden layer type: 'GRU' or 'tanh'
 NOISE_LEVEL = args.noise_level
                       # noise in training attractor net 
                       # if >=0, Gaussian with std dev NOISE_LEVEL 
                       # if < 0, Bernoulli dropout proportion -NOISE_LEVEL 
-INPUT_NOISE_LEVEL = args.input_noise_level
-                      # for parity and majority
+INPUT_NOISE_LEVEL = .1
+
 N_ATTRACTOR_STEPS = args.n_attractor_steps 
                       # number of time steps in attractor dynamics
                       # if = 0, then no attractor net
@@ -100,10 +79,6 @@ REPORT_BEST_TRAIN_PERFORMANCE = args.report_best_train_performance
 LOSS_SWITCH_FREQ = args.loss_switch_frequency 
                       # how often (in epochs) to switch between attractor 
                       # and prediction loss
-LATENT_ATTRACTOR_SPACE = args.latent_attractor_space
-                      # false: attractor operates in its input space
-if (not LATENT_ATTRACTOR_SPACE):
-   print('WARNING: USING INPUT SPACE FOR ATTRACTOR DYNAMICS\n')
 
 TASK = args.task      # task (parity, majority, reber, kazakov)
 if (TASK=='parity'):
@@ -155,16 +130,9 @@ attractor_tgt_net = tf.placeholder("float", [None, N_HIDDEN])
 # which is the default "no attractor" model, but that doesn't learn as well as
 # randomizing initial weights
 attr_net = {
-     'Win': tf.get_variable("attractor_Win", 
-                            initializer=tf.eye(N_HIDDEN,num_columns=N_ATTRACTOR_HIDDEN) + 
-                                    .01*tf.random_normal([N_HIDDEN,N_ATTRACTOR_HIDDEN])),
-     'W': tf.get_variable("attractor_Whid", 
-                          initializer=.01*tf.random_normal([N_ATTRACTOR_HIDDEN,N_ATTRACTOR_HIDDEN])),
-     'Wout': tf.get_variable("attractor_Wout", 
-                            initializer=tf.eye(N_ATTRACTOR_HIDDEN,num_columns=N_HIDDEN) + 
-                                    .01*tf.random_normal([N_ATTRACTOR_HIDDEN,N_HIDDEN])),
-     'bin': tf.get_variable("attractor_bin", initializer=.01*tf.random_normal([N_ATTRACTOR_HIDDEN])),
-     'bout': tf.get_variable("attractor_bout", initializer=.01*tf.random_normal([N_HIDDEN])),
+     'W': tf.get_variable("attractor_W", initializer=.01*tf.random_normal([N_HIDDEN,N_HIDDEN])),
+     'b': tf.get_variable("attractor_b", initializer=.01*tf.random_normal([N_HIDDEN])),
+     'scale': tf.get_variable("attractor_scale", initializer=.01*tf.ones([1]))
      }
 
 if ATTR_WEIGHT_CONSTRAINTS: # symmetric + nonnegative diagonal weight matrix
@@ -188,12 +156,12 @@ def generate_examples():
            X_test, Y_test = add_input_noise(INPUT_NOISE_LEVEL,X_test,Y_test,2)
     # for majority, split all sequences into training and test sets
     elif (TASK == 'majority'):
-        X_all, Y_all = generate_parity_majority_sequences(SEQ_LEN, N_TRAIN+N_TEST)
+        X_train, Y_train = generate_parity_majority_sequences(SEQ_LEN, N_TRAIN+N_TEST)
         pix = np.random.permutation(N_TRAIN+N_TEST)
-        X_train = X_all[pix[:N_TRAIN],:]
-        Y_train = Y_all[pix[:N_TRAIN],:]
-        X_test = X_all[pix[N_TRAIN:],:]
-        Y_test = Y_all[pix[N_TRAIN:],:]
+        X_train = X_train[pix[:N_TRAIN],:]
+        Y_train = Y_train[pix[:N_TRAIN],:]
+        X_test = X_train[pix[N_TRAIN:],:]
+        Y_test = Y_train[pix[N_TRAIN:],:]
         if (INPUT_NOISE_LEVEL > 0.):
            X_test, Y_test = add_input_noise(INPUT_NOISE_LEVEL,X_test,Y_test,1)
     elif (TASK == 'reber'):
@@ -282,25 +250,16 @@ def mozer_get_variable(vname, mat_dim):
 
 ############### RUN_ATTRACTOR_NET #################################################
 
-def run_attractor_net(input_state):
-    # Note: input_state is on the [-infty,+infty] scale
+def run_attractor_net(input_bias):
 
     if (N_ATTRACTOR_STEPS > 0):
-
-        if (LATENT_ATTRACTOR_SPACE):
-            transformed_input_state = attr_net['bin'] + tf.matmul(input_state, attr_net['Win'])
-        else:
-            transformed_input_state = attr_net['bin'] + attr_net['Win'][0,0] * input_state 
-
-        a = tf.zeros(tf.shape(transformed_input_state)) 
+        a_clean = tf.zeros(tf.shape(input_bias)) 
         for i in range(N_ATTRACTOR_STEPS):
-            a = tf.matmul(tf.tanh(a), attr_net['Wconstr']) + transformed_input_state
-        if (LATENT_ATTRACTOR_SPACE):
-            a_clean = tf.tanh(attr_net['bout'] + tf.matmul(a,attr_net['Wout']))
-        else:
-            a_clean = tf.tanh(a)
+            a_clean = tf.matmul(tf.tanh(a_clean), attr_net['Wconstr']) \
+                                        + attr_net['scale'] * input_bias + attr_net['b']
+        a_clean = tf.tanh(a_clean)
     else:
-        a_clean = tf.tanh(input_state)
+        a_clean = tf.tanh(input_bias)
     return a_clean
 
 
@@ -312,21 +271,21 @@ def attractor_net_loss_function(attractor_tgt_net, params):
 
     # clean-up for attractor net training
     if (NOISE_LEVEL >= 0.0): # Gaussian mean-zero noise
-        input_state = attractor_tgt_net + NOISE_LEVEL \
+        input_bias = attractor_tgt_net + NOISE_LEVEL \
                                  * tf.random_normal(tf.shape(attractor_tgt_net))
     else: # Bernoulli dropout
-        input_state = attractor_tgt_net * \
+        input_bias = attractor_tgt_net * \
                 tf.cast((tf.random_uniform(tf.shape(attractor_tgt_net)) \
                                                   >= -NOISE_LEVEL),tf.float32)
 
-    a_cleaned = run_attractor_net(input_state)
+    a_cleaned = run_attractor_net(input_bias)
 
     # loss is % reduction in noise level
     attr_tgt = tf.tanh(attractor_tgt_net)
     attr_loss = tf.reduce_mean(tf.pow(attr_tgt - a_cleaned,2)) /\
-                tf.reduce_mean(tf.pow(attr_tgt - tf.tanh(input_state),2))
+                tf.reduce_mean(tf.pow(attr_tgt - tf.tanh(input_bias),2))
 
-    return attr_loss, input_state
+    return attr_loss, input_bias
 
 
 ############### GRU ###############################################################
@@ -444,6 +403,8 @@ def RNN_tanh(X, params):
 
 
 ######### MAIN CODE #############################################################
+np.random.seed(100)
+tf.set_random_seed(100)
 
 # Define architecture graph
 if (ARCH == 'tanh'):
@@ -458,7 +419,7 @@ else:
 
 # Define loss graphs
 pred_loss_op = tf.reduce_mean(tf.pow(Y_ - Y, 2) / .25)
-attr_loss_op, input_state = \
+attr_loss_op, input_bias = \
            attractor_net_loss_function(attractor_tgt_net, params)
 
 # separate out parameters to be optimized
@@ -554,6 +515,6 @@ with tf.Session() as sess:
     print('indiv runs ',saved_train_acc)
     print('mean epoch', np.mean(saved_epoch))
     print('indiv epochs ',saved_epoch)
-    print('test accuracy mean ', np.mean(saved_test_acc),' median ', np.median(saved_test_acc))
+    print('mean test accuracy', np.mean(saved_test_acc))
     print('indiv runs ',saved_test_acc)
 
