@@ -1,0 +1,20 @@
+# TRAIN ATTRACTORS WITH DENOISING LOSS AND PREDICTION LOSS
+# FIXED 500 epochs
+
+foreach l (100 0)
+   foreach x ( 400 800 ) #50 100 200 )
+      foreach n (".250") # ".500")
+	 foreach s (5) # 15)
+	    python rnn_attr.py -task reber -seq_len 20 -display_epoch 50 -training_epochs 2500 -n_replications 100 -lrate_prediction .002 -lrate_attractor .002 -arch tanh -latent_attractor_space -n_hidden 20 -n_attractor_hidden 40 -loss_switch_frequency 0 -report_best_train_performance -batch_size $x -noise_level $n -n_attractor_steps $s -n_train $x -train_attr_weights_on_prediction -loss_switch_freq 0 -attr_loss_start $l > sdprnn_${x}_20hid_${s}iter_${n}noise_atl${l}.out
+         end
+      end
+   end
+end
+
+#foreach x ( 50 100 200 )
+#   foreach n (".250") # ".500")
+#      foreach s (5) # 15)
+#	 python rnn_attr.py -task reber -seq_len 20 -display_epoch 50 -training_epochs 2500 -n_replications 100 -lrate_prediction .002 -lrate_attractor .002 -arch tanh -latent_attractor_space -n_hidden 20 -n_attractor_hidden 40 -loss_switch_frequency 0 -report_best_train_performance -batch_size $x -noise_level $n -n_attractor_steps $s -n_train $x -train_attr_weights_on_prediction -loss_switch_freq 0 -attr_loss_start 50 > sdprnn_${x}_20hid_${s}iter_${n}noise_atl50.out
+#      end
+#   end
+#end

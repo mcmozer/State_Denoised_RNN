@@ -8,3 +8,23 @@ Example:
 Horses, Cows, Deer => Nilgai
 Nilgai: asian antelope  "blue cow"
 
+-------------------------------------------------------------------------------
+
+http://www.offconvex.org/2018/02/17/generalization2/
+- understanding deep nets in terms of noise suppression
+
+https://arxiv.org/pdf/1711.00482.pdf
+Learning with Latent Language
+
+Consciousness prior paper
+
+Dehaene consciousness
+
+Singer & Lazar
+https://www.frontiersin.org/articles/10.3389/fncom.2016.00099/full
+
+Does the Cerebral Cortex Exploit High-Dimensional, Non-linear Dynamics for Information Processing?
+
+"If the evidence provided by the input patterns can be easily interpreted by the computational circuitry, the network dynamics will collapse to a specific substate, corresponding to a particular perceptual experience. Such a substate is expected to have a lower dimensionality than the resting activity, exhibit specific correlation structures and be metastable due to reverberation among nodes supporting the respective substate."
+
+In this paper, a framework is presented which establishes links between the various manifestations of cortical dynamics by assigning specific coding functions to low-dimensional dynamic features such as synchronized oscillations and phase shifts on the one hand and high-dimensional non-linear, non-stationary dynamics on the other. The data serving as basis for this synthetic approach have been obtained with chronic multisite recordings from the visual cortex of anesthetized cats and from monkeys trained to solve cognitive tasks. It is proposed that the low-dimensional dynamics characterized by synchronized oscillations and large-scale correlations are substates that represent the results of computations performed in the high-dimensional state-space provided by recurrently coupled networks.

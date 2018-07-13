@@ -1,0 +1,175 @@
+\documentclass[11pt,letterpaper]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}                                                      %%
+%%%%%%%%%% EXACT 1in MARGINS %%%%%%%                                   %%
+\setlength{\textwidth}{6.5in}     %%                                   %%
+\setlength{\oddsidemargin}{0in}   %% (It is recommended that you       %%
+\setlength{\evensidemargin}{0in}  %%  not change these parameters,     %%
+\setlength{\textheight}{8.5in}    %%  at the risk of having your       %%
+\setlength{\topmargin}{0in}       %%  proposal dismissed on the basis  %%
+\setlength{\headheight}{0in}      %%  of incorrect formatting!!!)      %%
+\setlength{\headsep}{0in}         %%                                   %%
+\setlength{\footskip}{.5in}       %%                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                   %%
+\newcommand{\required}[1]{\section*{\hfil #1\hfil}}                    %%
+
+
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[rightcaption]{sidecap}
+\usepackage{dsfont}
+\usepackage{nopageno}
+
+\usepackage{hyperref}
+\usepackage{times}
+\usepackage{graphicx} % more modern
+%\usepackage{epsfig} % less modern
+\usepackage{subfigure} 
+\usepackage{url}
+\usepackage{epstopdf}
+\usepackage{amsfonts}
+%\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb} % define this before the lin numbering.
+%\usepackage{ruler}
+%\usepackage{subfigure}
+% \usepackage{color}
+\usepackage{bm}
+
+\renewcommand{\vec}[1]{{\boldsymbol #1}}
+\setcounter{secnumdepth}{0}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}[display]{\normalfont\bfseries\large}{}{}{}
+\titlespacing{\section}{0pt}{13pt}{6.5pt}
+\titlespacing{\subsection}{0pt}{11pt}{5.5pt}
+
+\let\oldbibliography\thebibliography
+\renewcommand{\thebibliography}[1]{%
+  \oldbibliography{#1}%
+  \setlength{\itemsep}{0pt}%
+}
+
+\begin{document}
+
+\begin{center}
+
+{\Large \textbf{State-Denoised Recurrent Neural Networks}}
+
+\vspace{1em}
+Michael C. Mozer \& Denis Kazakov \\
+Department of Computer Science \\
+University of Colorado \\
+Boulder, CO 80309-0430 USA \\
+{\tt \{mozer,kazakov\}@colorado.edu}
+\end{center}
+
+
+\begin{abstract}
+HERE IS MY ABSTRACT
+\end{abstract}
+
+%\vspace{-.02in} % mozer added to squeeze paragraph onto page
+
+\section{Introduction}
+
+Varieties of consciousness:  access and phenomenal
+degrees of consciousness
+
+Global workspace (Dehaene 2017 article)
+
+Conscious states are interpretations 
+(Dehaene 
+31. T. I. Panagiotaropoulos, G. Deco, V. Kapoor, N. K. Logothetis,
+Neuron 74, 924–935 (2012).
+32. N. K. Logothetis, Philos. Trans. R. Soc. Lond. B Biol. Sci. 353,
+1801–1818 (1998).
+
+stability -- attractor states
+
+ color language terms influence color judgments, a result one would not expect unless (a) conscious states are interpretations, and (b) we can't directly access the low-level perceptual information for decision making.
+
+Effects of language on color discriminability
+Witthoft, Winawer, Wu, Frank, Wade, \& Boroditsky (2003)
+
+Relation to Bengio Consciousness prior
+- proposal for a simplified or reduced description of an agent's complex, 
+internal state that selectis a small subset of the information in the internal 
+state, characterized in terms of factors, variables, concepts, dimensions
+- emphasis on low dimensionality (e.g., key-value representation where only
+one key is selected)
+- instead, i focus on coherence of state such that all the bits fit together,
+  but may involve multiple factors (e.g., dog -- hair, size, sound, etc.)
+- bengio focus is on isolating factors; my goal is to build sharper internal
+representations
+- bengio's hope is to have a conscious state that can be transformed into
+natural language sentences in a fairly simple manner.  in my case, it's more
+of a criterion for what makes the conscious state.
+
+Consciousness as a posterior: prior is bias to familiar states, interpretation
+is posterior given evidence
+
+Consider any complex intelligent system that is composed of processing components or pathways, e.g., brain, deep net, recurrent net
+
+%\begin{figure}[tb]
+%\begin{center}
+%\includegraphics[scale=0.45]{128_hand_selected-3.eps}
+%\end{center}
+%\caption{Three examples showing neural net reconstructions of an original image (center) by the standard approach (left) and by our technique (right). The compression factor is high to highlight differences.}
+%\label{fig:example}
+%\end{figure}
+
+%\cite{Vincentetal2008}
+%\section{Background and related work}
+%\subsection{Neural networks for image synthesis}
+
+%\begin{SCfigure}
+%\includegraphics[width=2in]{128_autoencoder_ranking_results.png}
+%\includegraphics[width=2in]{vae_ranking_results.png}
+%\caption{Human judgments of images reconstructed by (a) deterministic and (b) probabilistic convolutional autoencoders. Each graph shows the distribution of image quality ranking for MS-SSIM, MSE, and MAE for 1000 images from the STL-10 hold-out set.}
+%\label{fig:human_rankings}
+%\end{SCfigure}
+
+
+%\begin{figure}[bt]
+%\centering
+%\begin{tabular}{cc}
+%(a)
+%\includegraphics[width=.35\linewidth]{det_autoencoder_r1_examples.png} &  
+%(b)
+%\includegraphics[width=.35\linewidth]{vae_recon_pref.png} 
+%\end{tabular}
+%\caption{Reconstructions from (a) deterministic and (b) probabilistic
+%autoencoders. For each architecture, four randomly selected, held-out
+%STL-10 images are shown (1st column), along with the MS-SSIM, MSE, and
+%MAE reconstructions (2nd-4th columns, respectively).
+%}
+%\label{fig:128_autoencoder_rank_examples}
+%\end{figure}
+
+%\begin{table}[b]
+%\small
+%\centering
+%\begin{tabular}[b]{| c || c | c | c |}
+%\hline
+%\textbf{Loss Function} &
+%\textbf{Azimuth Error} &
+%\textbf{Elevation Error} &
+%\textbf{Classification Accuracy} \\
+%\hline
+%\textbf{MS-SSIM} & 514 & 109 & 97.80\% \\
+%\textbf{MSE} & 904 & 127 & 95.57\% \\
+%\textbf{MAE} & 1046 & 122 &  97.43\% \\
+%\hline
+%\end{tabular}
+%\caption{Regression and Classification Performance on Yale B Face Data Set}
+%\label{table:yale}
+%\end{table}
+
+\bibliographystyle{apa}
+\small
+\bibliography{bibliography}
+
+\end{document}

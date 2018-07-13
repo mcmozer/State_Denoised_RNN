@@ -1,0 +1,12 @@
+#!/bin/csh
+
+#python rnn_attr.py -task majority -seq_len 10 -display_epoch 100 -training_epochs 2500 -n_replications 100 -lrate_attractor .002 -lrate_prediction .002 -n_attractor_steps 0 -arch tanh -latent_attractor_space -n_hidden 5 -n_attractor_hidden 10 -input_noise_level 0.15 -loss_switch_frequency 0 -report_best_train_performance -noise_level .500 -batch_size 256 > sdrnn_10.out
+#python rnn_attr.py -task majority -seq_len 15 -display_epoch 100 -training_epochs 2500 -n_replications 100 -lrate_attractor .002 -lrate_prediction .002 -n_attractor_steps 0 -arch tanh -latent_attractor_space -n_hidden 5 -n_attractor_hidden 10 -input_noise_level 0.15 -loss_switch_frequency 0 -report_best_train_performance -noise_level .500 -batch_size 256 > sdrnn_15.out
+#python rnn_attr.py -task majority -seq_len 20 -display_epoch 100 -training_epochs 2500 -n_replications 100 -lrate_attractor .002 -lrate_prediction .002 -n_attractor_steps 0 -arch tanh -latent_attractor_space -n_hidden 5 -n_attractor_hidden 10 -input_noise_level 0.15 -loss_switch_frequency 0 -report_best_train_performance -noise_level .500 -batch_size 256 > sdrnn_20.out
+#echo NO ATTRACTOR DYNAMICS
+
+# NO ATTRACTOR NET
+
+foreach x ( 10 15 20 25 30 ) 
+   python rnn_attr.py -seq_len $x -task majority -display_epoch 100 -training_epochs 2500 -n_replications 100 -lrate_prediction .002 -arch tanh -latent_attractor_space -n_hidden 10 -n_attractor_hidden 20 -input_noise_level 0.15 -loss_switch_frequency 0 -report_best_train_performance -batch_size 256 -noise_level .250 -lrate_attractor .000 -n_attractor_steps 0 > rnn_${x}_10hid.out
+end

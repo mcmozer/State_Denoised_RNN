@@ -1,0 +1,259 @@
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			50,
+h_hid: 			100
+n_attractor_iterations: 15,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	802/17202, SEQ_LEN: 50
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.8709 	 0.0001
+saved_test_acc 		0.7904 	 0.0000
+
+EPOCHS:373;322
+TRAIN:0.879631;0.862132
+TEST:0.791997;0.7889
+ATT_LOSS:{'forw': '0.6024', 'back': '0.5795'};{'forw': '0.5799', 'back': '0.5537'}
+ENTROPY:0;0
+ENTROPY_TEST:
+saved_val_acc:0.822523;0.778923
+saved_val_loss:0.699875;0.855882
+saved_train_loss:0.422171;0.484133
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			50,
+h_hid: 			100
+n_attractor_iterations: 0,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	802/17202, SEQ_LEN: 50
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.8711 	 0.0000
+saved_test_acc 		0.7905 	 0.0000
+
+EPOCHS:290;254
+TRAIN:0.875265;0.866855
+TEST:0.78869;0.792283
+ATT_LOSS:{'forw': '1.0000', 'back': '1.0000'};{'forw': '1.0000', 'back': '1.0000'}
+ENTROPY:0;0
+ENTROPY_TEST:
+saved_val_acc:0.818987;0.812809
+saved_val_loss:0.692253;0.759446
+saved_train_loss:0.434826;0.473742
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			50,
+h_hid: 			100
+n_attractor_iterations: 15,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	1605/17202, SEQ_LEN: 50
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.8602 	 0.0000
+saved_test_acc 		0.8096 	 0.0000
+
+EPOCHS:471;361
+TRAIN:0.86411;0.856253
+TEST:0.813438;0.805732
+ATT_LOSS:{'forw': '0.5976', 'back': '0.5536'};{'forw': '0.5541', 'back': '0.5370'}
+ENTROPY:0;0
+ENTROPY_TEST:
+saved_val_acc:0.810094;0.807246
+saved_val_loss:0.757677;0.795043
+saved_train_loss:0.465567;0.502479
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			50,
+h_hid: 			100
+n_attractor_iterations: 0,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	1605/17202, SEQ_LEN: 50
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.8719 	 0.0001
+saved_test_acc 		0.8090 	 0.0000
+
+EPOCHS:327;351
+TRAIN:0.864678;0.879063
+TEST:0.80923;0.808766
+ATT_LOSS:{'forw': '1.0000', 'back': '1.0000'};{'forw': '1.0000', 'back': '1.0000'}
+ENTROPY:0;0
+ENTROPY_TEST:
+saved_val_acc:0.809573;0.806125
+saved_val_loss:0.757643;0.725862
+saved_train_loss:0.475718;0.427947
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			50,
+h_hid: 			100
+n_attractor_iterations: 15,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	3211/17202, SEQ_LEN: 50
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.8571 	 0.0000
+saved_test_acc 		0.8201 	 0.0000
+
+EPOCHS:454;582
+TRAIN:0.851311;0.862808
+TEST:0.814372;0.825777
+ATT_LOSS:{'forw': '0.5806', 'back': '0.5619'};{'forw': '0.5756', 'back': '0.5523'}
+ENTROPY:0;0
+ENTROPY_TEST:
+saved_val_acc:0.823387;0.8282
+saved_val_loss:0.646562;0.651903
+saved_train_loss:0.514822;0.464596
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			50,
+h_hid: 			100
+n_attractor_iterations: 0,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	3211/17202, SEQ_LEN: 50
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.8644 	 0.0000
+saved_test_acc 		0.8177 	 0.0000
+
+EPOCHS:533;364
+TRAIN:0.869801;0.858942
+TEST:0.817122;0.818241
+ATT_LOSS:{'forw': '1.0000', 'back': '1.0000'};{'forw': '1.0000', 'back': '1.0000'}
+ENTROPY:0;0
+ENTROPY_TEST:
+saved_val_acc:0.826794;0.821114
+saved_val_loss:0.641461;0.637873
+saved_train_loss:0.438036;0.496663
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			50,
+h_hid: 			100
+n_attractor_iterations: 15,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	6422/17202, SEQ_LEN: 50
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.8487 	 0.0001
+saved_test_acc 		0.8279 	 0.0000
+
+EPOCHS:420;669
+TRAIN:0.837996;0.859469
+TEST:0.82159;0.834302
+ATT_LOSS:{'forw': '0.5586', 'back': '0.5486'};{'forw': '0.5672', 'back': '0.5617'}
+ENTROPY:0;0
+ENTROPY_TEST:
+saved_val_acc:0.823767;0.834008
+saved_val_loss:0.64754;0.591407
+saved_train_loss:0.562828;0.473135
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			50,
+h_hid: 			100
+n_attractor_iterations: 0,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	6422/17202, SEQ_LEN: 50
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.8635 	 0.0000
+saved_test_acc 		0.8339 	 0.0000
+
+EPOCHS:547;642
+TRAIN:0.861443;0.865629
+TEST:0.833273;0.834519
+ATT_LOSS:{'forw': '1.0000', 'back': '1.0000'};{'forw': '1.0000', 'back': '1.0000'}
+ENTROPY:0;0
+ENTROPY_TEST:
+saved_val_acc:0.832979;0.84098
+saved_val_loss:0.606992;0.57115
+saved_train_loss:0.471835;0.448739
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			50,
+h_hid: 			100
+n_attractor_iterations: 15,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	16055/17202, SEQ_LEN: 50
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.8541 	 0.0000
+saved_test_acc 		0.8445 	 0.0000
+
+EPOCHS:498;619
+TRAIN:0.850288;0.857935
+TEST:0.842683;0.846307
+ATT_LOSS:{'forw': '0.5701', 'back': '0.5661'};{'forw': '0.5741', 'back': '0.5568'}
+ENTROPY:0;0
+ENTROPY_TEST:
+saved_val_acc:0.842262;0.845686
+saved_val_loss:0.546276;0.538525
+saved_train_loss:0.507508;0.474072
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			50,
+h_hid: 			100
+n_attractor_iterations: 0,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	16055/17202, SEQ_LEN: 50
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.8577 	 0.0001
+saved_test_acc 		0.8432 	 0.0000
+
+EPOCHS:567;314
+TRAIN:0.866204;0.849109
+TEST:0.846036;0.840344
+ATT_LOSS:{'forw': '1.0000', 'back': '1.0000'};{'forw': '1.0000', 'back': '1.0000'}
+ENTROPY:0;0
+ENTROPY_TEST:
+saved_val_acc:0.85258;0.842521
+saved_val_loss:0.513204;0.539109
+saved_train_loss:0.443259;0.512939

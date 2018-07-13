@@ -1,0 +1,13 @@
+#!/bin/csh
+
+setenv CUDA_VISIBLE_DEVICES ""
+set e = 5000
+set x = 5
+set f = 1
+set b = 2500
+
+#unbuffer python rnn_attr.py -task symmetry -display_epoch 50 -training_epochs 2500 -n_replications 50 -lrate_prediction .003 -arch tanh -latent_attractor_space -n_hidden 50 -n_attractor_hidden 100 -loss_switch_frequency 0 -report_best_train_performance -batch_size $b -noise_level .250 -lrate_attractor .003 -n_attractor_steps 5 -n_train $e -seq_len $x -train_attr_weights_on_prediction -attr_loss_start 100 -filler $f | tee sdprnn_tanh_${x}len_${f}filler_${e}examples.out
+
+unbuffer python rnn_attr.py -task symmetry -display_epoch 50 -training_epochs 2500 -n_replications 50 -lrate_prediction .003 -arch tanh -latent_attractor_space -n_hidden 50 -n_attractor_hidden 100 -loss_switch_frequency 0 -report_best_train_performance -batch_size $b -noise_level .250 -lrate_attractor .000 -n_attractor_steps 0 -n_train $e -seq_len $x -filler $f | tee rnn_tanh_${x}len_${f}filler_${e}examples.out
+
+unbuffer python rnn_attr.py -task symmetry -display_epoch 50 -training_epochs 2500 -n_replications 50 -lrate_prediction .003 -arch tanh -latent_attractor_space -n_hidden 50 -n_attractor_hidden 100 -loss_switch_frequency 0 -report_best_train_performance -batch_size $b -noise_level .250 -lrate_attractor .000 -n_attractor_steps 5 -n_train $e -seq_len $x -train_attr_weights_on_prediction -filler $f | tee rnna_tanh_${x}len_${f}filler_${e}examples.out

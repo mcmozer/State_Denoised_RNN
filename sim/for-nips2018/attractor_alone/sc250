@@ -1,0 +1,41 @@
+#!/usr/local/bin/python
+# this script runs the attractor net over a range of parameter values and
+# stores results in a file for later analysis
+#
+from __future__ import print_function
+from subprocess import call
+from os import system
+import subprocess
+import re
+
+#n_attractors = 25
+#n_hidden = 100
+n_input = 50
+noise_level = .25
+test_noise_level = .25
+seed = 100
+
+fp = open("output.txt", "a", 0) # don't buffer file
+
+for n_attractors in [225, 250]:
+    for n_hidden in [50, 100, 150, 200]:
+	cmd = ("python ./attractor_test_nips.py -n_epochs 500 " +
+	       "-n_replications 5 -n_steps 10 -n_attractors " + 
+	       str(n_attractors) + " -n_input " + str(n_input) + 
+	       " -n_hidden " + str(n_hidden) + " -noise_level " + 
+	       str(noise_level) + " -test_noise_level " + 
+               str(test_noise_level) + " -seed " + str(seed) )
+	print("***** RUNNING " + cmd)
+	p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
+	(output,err) = p.communicate()
+	p_status = p.wait()
+
+	m = re.search('\[(.*)\]', output)
+	results = map(float, m.group(1).split(","))
+	print(results)
+	for i,result in zip(range(len(results)),results):
+	    fp.write('%d%d %d %d %.3f %.7f\n' % 
+	          (seed, i, n_attractors, n_hidden, noise_level, result))
+
+
+fp.close()

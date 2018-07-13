@@ -1,0 +1,57 @@
+I forgot to email my plans to you - my apologies. I was expecting to talk to you at some point before now, but got carried away. I am going on a roadtrip/backpacking for next two weeks, but I’ll be available intermittently whenever I get phone signal in the evening or when we stay in hostels. In an attempt to free you a little from the dependency on me, I tried to setup up an environment for you where you could easily ssh and run simulations with my code/check the results. 
+
+
+1) To ssh into the remote notebook that’s running on lab’s computer under “screen -S denis”, do the following:
+- On your local terminal, run: ssh -N -L localhost:8901:localhost:8880 puget.ddns.net
+This will tunnel into the remote notebook, but localhost:8901 will be your local page address. 
+Password is: deka!912
+- in browser of choice, open page: http://localhost:8901
+- When asked for token, it’s: a33d3312457cc892d027d08850b942c3ccec33ab75fce3ef 
+(This can be seen in the screen session on the lab computer by typing: jupyter notebook list )
+- That’s it, you can now see all the folders and code that’s on the remote machine in root. Attractor code is in: /home/denis/Documents/attractor_net_notebooks
+- All classification tasks (topic_classification, video_classification, msnbc) have a notebook that you could just run with all parameters set there already. (There were too many to explain each code specific. The main difference is in these 3 ops parameters:
+	'problem_type': "video_classification", # OPTIONS: parity, parity_length, majority, reber, kazakov, pos_brown, ner_german, sentiment_imdb, topic_classification, video_classification 
+	'masking': False,#"seq", "final” 
+	'prediction_type': 'final_class', #'seq', 'final', ‘final_class
+- the results are saved automatically in 2 ways:
+	a) the log of training is in: /home/denis/Documents/attractor_net_notebooks/experiments/logs/*task_name*.txt
+	b) the final results collected over all replications are in: /home/denis/Documents/attractor_net_notebooks/experiments/results/*task_name*.txt
+- I also added you to GitHub repo just in case. 
+
+* one thing to keep in mind is that sometimes notebooks don’t free up GPU memory unless the notebook is stopped, so under tabs of Jupiter page at localhost:8901, open “Running”, to the right of “Files”. There, you can “Shutdown” active notebooks. That will force free the GPU usage. 
+
+2) Alternatively, if you wanted to just run a script, you can also just ssh directly: ssh puget.ddns.net (password the same and the password will automatically log you in under my account)
+In your script specify the following to restrict GPU usage to only 1:
+	import os
+	os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   # see issue #152
+	os.environ["CUDA_VISIBLE_DEVICES"]=“1” # this CHOOSES GPU, not specifying their number. Since there are 2, only “0” or “1” are your options. 
+
+
+3) There are 3 classification datasets:
+topic_classification, video_classification, msnbc
+
+Video:
+* The whole dataset is too large to fit on the GPU, so I am using partitions of classes. Previous result was from 25 classes. There are also partitions for 50, 75, 101 (all) classes. But I haven’t tried running them yet since I was worried about the attractor loss exceeding one. 
+3.1) To change which partition is used, change the path in data_generator.py at line 152 to "data_class25.pickle”, "data_class50.pickle”, "data_class75.pickle” or “data.pickle” accordingly. The full dataset doesn’t fit on GPU however. 50 classes should, 75 might. 
+And the line 401 "N_CLASSES = …" accordingly
+* I am not sure what the issue was - it’s definitely a memory size issue, but I don’t understand why tensorlfow cares since it’s using mini-batches anyway. 
+* Either way, even predicting 25, 50 classes is a difficult task. 
+* keep in mind that features extracted by the pretrained Inception model are already really good. Even in the blog post, CNN alone got 65% accuracy on all 100 classes, while CNN -> RNN got 74%. 
+* Input features at 2056 dimensional vectors (final activation layer of CNN layer). Attractor net struggled if I let hidden unit space be large, while regular RNN didn’t, so I chose to project to lower dimensional recurrent space of only 100 units (200 attractor units). This way, the net will learn to map combinations of features to specific recurrent units, which is suboptimal, but for model comparison sake - okay I thought.
+
+MSNBC:
+I’ll rerun with more replications, but I didn’t see difference between SDRNN, RNN before, even after removing the sigmoid activation. 
+ 
+
+Topic_classification:
+Currently rerunning for 20 replications at 25%, 50%, 75%, 100% of the dataset, but based on preliminary run from before after removing the sigmoid bug, still didn’t see substantial difference, although variance was to high to tell for sure.
+
+
+
+I’ll try my best to be available to calls and check-ins and to start whatever experiments you were thinking of. Aside from video (even though it has this weirdly high attractor loss), I haven’t seen much different between SDRNN and RNN after rerunning all classification datasets after fixing the sigmoid bug :\
+But maybe you could think of something though. 
+
+Sorry I am going away - we planned this much needed post-grad trip for awhile and I didn’t realize we’d still be doing things after the nips deadline. I am taking my laptop with me and again will try to be as available when possible. 
+
+Best, 
+Denis

@@ -1,0 +1,21 @@
+rnn_50_20hid.out                                   0.6511 0.6495 0.0034
+rnn_100_20hid.out                                  0.7307 0.7310 0.0040
+rnn_200_20hid.out                                  0.8423 0.8355 0.0046
+rnn_400_20hid.out                                  0.9461 0.9585 0.0032
+rnn_800_20hid.out                                  0.9819 0.9845 0.0014
+
+sdprnn_50_20hid_5iter_.250noise_atl50.out          0.6599 0.6575 0.0038
+sdprnn_100_20hid_5iter_.250noise_atl50.out         0.7614 0.7550 0.0057
+sdprnn_200_20hid_5iter_.250noise_atl50.out         0.8806 0.8820 0.0054
+
+sdprnn_50_20hid_5iter_.250noise_atl0.out           0.6557 0.6518 0.0043
+sdprnn_100_20hid_5iter_.250noise_atl0.out          0.7515 0.7497 0.0055
+sdprnn_200_20hid_5iter_.250noise_atl0.out          0.8702 0.8738 0.0062
+sdprnn_400_20hid_5iter_.250noise_atl0.out          0.9660 0.9730 0.0023
+sdprnn_800_20hid_5iter_.250noise_atl0.out          0.9900 0.9920 0.0007
+
+sdprnn_50_20hid_5iter_.250noise_atl100.out         0.6611 0.6540 0.0050
+sdprnn_100_20hid_5iter_.250noise_atl100.out        0.7684 0.7635 0.0059
+sdprnn_200_20hid_5iter_.250noise_atl100.out        0.8908 0.9012 0.0060
+sdprnn_400_20hid_5iter_.250noise_atl100.out        0.9729 0.9790 0.0021
+sdprnn_800_20hid_5iter_.250noise_atl100.out        0.9892 0.9925 0.0009

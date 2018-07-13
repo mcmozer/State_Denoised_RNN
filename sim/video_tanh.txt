@@ -1,0 +1,155 @@
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			100,
+h_hid: 			200
+n_attractor_iterations: 15,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	2205/0, SEQ_LEN: 40
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.6439 	 0.0006
+saved_test_acc 		0.5454 	 0.0002
+
+EPOCHS:145;141
+TRAIN:0.61904263;0.66872215
+TEST:0.5321428;0.5587054
+ATT_LOSS:{'forw': '6.1166'};{'forw': '4.7807'}
+ENTROPY:{'forw': '10.1063'};{'forw': '10.2283'}
+ENTROPY_TEST:
+saved_val_acc:0.84375;0.90625
+saved_val_loss:0.6923355;0.48966005
+saved_train_loss:1.1384841;1.0325565
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			100,
+h_hid: 			200
+n_attractor_iterations: 0,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	2205/0, SEQ_LEN: 40
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.1920 	 0.0000
+saved_test_acc 		0.1727 	 0.0001
+
+EPOCHS:49;80
+TRAIN:0.19429348;0.18962514
+TEST:0.184375;0.1609375
+ATT_LOSS:{'forw': '1.0000'};{'forw': '1.0000'}
+ENTROPY:{'forw': '3.1618'};{'forw': '2.6118'}
+ENTROPY_TEST:
+saved_val_acc:0.48214287;0.3794643
+saved_val_loss:2.046085;2.231358
+saved_train_loss:2.6041274;2.5779388
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			100,
+h_hid: 			200
+n_attractor_iterations: 15,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	1114/0, SEQ_LEN: 40
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.6660 	 0.0000
+saved_test_acc 		0.5329 	 0.0000
+
+EPOCHS:204;297
+TRAIN:0.66839284;0.6635714
+TEST:0.5321428;0.53370535
+ATT_LOSS:{'forw': '6.7924'};{'forw': '8.7313'}
+ENTROPY:{'forw': '8.3905'};{'forw': '8.1913'}
+ENTROPY_TEST:
+saved_val_acc:0.6441327;0.63584185
+saved_val_loss:1.1951807;1.3282058
+saved_train_loss:0.98931265;1.0247532
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			100,
+h_hid: 			200
+n_attractor_iterations: 0,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	1114/0, SEQ_LEN: 40
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.3479 	 0.0043
+saved_test_acc 		0.2694 	 0.0054
+
+EPOCHS:112;83
+TRAIN:0.28232145;0.41357145
+TEST:0.19575892;0.34308034
+ATT_LOSS:{'forw': '1.0000'};{'forw': '1.0000'}
+ENTROPY:{'forw': '3.4456'};{'forw': '4.5173'}
+ENTROPY_TEST:
+saved_val_acc:0.35140306;0.42793366
+saved_val_loss:2.067626;1.8676312
+saved_train_loss:2.1046631;1.6718512
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			100,
+h_hid: 			200
+n_attractor_iterations: 15,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	557/0, SEQ_LEN: 40
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.2285 	 0.0225
+saved_test_acc 		0.1804 	 0.0104
+
+EPOCHS:23;41
+TRAIN:0.07857143;0.37843406
+TEST:0.07834821;0.28236607
+ATT_LOSS:{'forw': '7.9788'};{'forw': '4.7729'}
+ENTROPY:{'forw': '2.6326'};{'forw': '7.5019'}
+ENTROPY_TEST:
+saved_val_acc:0.13511905;0.3809524
+saved_val_loss:3.434101;2.088982
+saved_train_loss:3.3193388;1.8485981
+
+(2018-05-19): dataset_starvation_experiment
+<NETWORK>:
+model_type: 		TANH,
+hid: 			100,
+h_hid: 			200
+n_attractor_iterations: 0,
+attractor_dynamics: 	projection2
+attractor_noise_level: 	0.5
+attractor_noise_type: 	bernoilli
+attractor_regu-n: 	l2_regularization(lambda:0.0)
+TRAIN/TEST_SIZE: 	557/0, SEQ_LEN: 40
+<RESULTS>:
+type: 			mean: 	 var: 	
+saved_train_acc 	0.2849 	 0.0113
+saved_test_acc 		0.2256 	 0.0052
+
+EPOCHS:41;84
+TRAIN:0.17843407;0.39134613
+TEST:0.153125;0.29799107
+ATT_LOSS:{'forw': '1.0000'};{'forw': '1.0000'}
+ENTROPY:{'forw': '2.9982'};{'forw': '4.9992'}
+ENTROPY_TEST:
+saved_val_acc:0.24404763;0.33630952
+saved_val_loss:2.6805456;2.2202346
+saved_train_loss:2.574261;1.8148956

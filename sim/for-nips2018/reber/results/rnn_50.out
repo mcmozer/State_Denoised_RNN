@@ -1,0 +1,1313 @@
+Namespace(arch='tanh', attr_loss_start=1, batch_size=50, display_epoch=50, early_stop=True, input_noise_level=0.1, latent_attractor_space=True, loss_switch_frequency=0, lrate_attractor=0.0, lrate_prediction=0.002, lrate_wt_penalty=0.0, n_attractor_hidden=40, n_attractor_steps=0, n_hidden=20, n_replications=100, n_train=50, noise_level=0.25, report_best_train_performance=True, seq_len=20, task='reber', train_attr_weights_on_prediction=False, training_epochs=2500)
+********** replication  0  **********
+epoch   0 LossPred 1.0191 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6607 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.6085
+epoch 100 LossPred 0.3906 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6570
+epoch 150 LossPred 0.1291 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7050
+epoch 200 LossPred 0.0081 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.7035
+Optimization Finished!
+********** replication  1  **********
+epoch   0 LossPred 1.0151 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.5886 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.4910
+epoch 100 LossPred 0.2064 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5260
+epoch 150 LossPred 0.1026 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5170
+epoch 200 LossPred 0.0882 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5010
+epoch 250 LossPred 0.0843 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5015
+epoch 300 LossPred 0.0827 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.4990
+epoch 350 LossPred 0.0818 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5015
+epoch 400 LossPred 0.0812 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5020
+epoch 450 LossPred 0.0809 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5020
+epoch 500 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5030
+epoch 550 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5035
+epoch 600 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5045
+epoch 650 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5045
+epoch 700 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5005
+epoch 750 LossPred 1.9743 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch 800 LossPred 0.9816 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch 850 LossPred 0.8836 LossAtt 1.0000 TrainAcc 0.7200 TestAcc 0.5270
+epoch 900 LossPred 0.5827 LossAtt 1.0000 TrainAcc 0.8000 TestAcc 0.4975
+epoch 950 LossPred 0.4103 LossAtt 1.0000 TrainAcc 0.8600 TestAcc 0.5060
+epoch 1000 LossPred 0.2865 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.5325
+epoch 1050 LossPred 0.1477 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5595
+epoch 1100 LossPred 0.0919 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5565
+epoch 1150 LossPred 0.0312 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.5935
+Optimization Finished!
+********** replication  2  **********
+epoch   0 LossPred 1.0115 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7694 LossAtt 1.0000 TrainAcc 0.7200 TestAcc 0.5710
+epoch 100 LossPred 0.3255 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6285
+epoch 150 LossPred 0.1521 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6005
+epoch 200 LossPred 0.0433 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6120
+Optimization Finished!
+********** replication  3  **********
+epoch   0 LossPred 1.0001 LossAtt 1.0000 TrainAcc 0.5400 TestAcc 0.5085
+epoch  50 LossPred 0.7596 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.5790
+epoch 100 LossPred 0.1768 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6820
+epoch 150 LossPred 0.0176 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6745
+Optimization Finished!
+********** replication  4  **********
+epoch   0 LossPred 1.0096 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7308 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.4935
+epoch 100 LossPred 0.5297 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5225
+epoch 150 LossPred 0.3989 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.5095
+epoch 200 LossPred 0.2833 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.5050
+epoch 250 LossPred 0.1294 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6495
+Optimization Finished!
+********** replication  5  **********
+epoch   0 LossPred 1.0050 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7059 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5155
+epoch 100 LossPred 0.4492 LossAtt 1.0000 TrainAcc 0.8600 TestAcc 0.5755
+epoch 150 LossPred 0.3296 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6055
+epoch 200 LossPred 0.2536 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6270
+epoch 250 LossPred 0.2410 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6345
+epoch 300 LossPred 0.2369 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6360
+epoch 350 LossPred 0.2256 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6440
+epoch 400 LossPred 0.2243 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6260
+epoch 450 LossPred 0.2003 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6345
+epoch 500 LossPred 0.1743 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6370
+epoch 550 LossPred 0.1112 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6620
+epoch 600 LossPred 0.0570 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6260
+Optimization Finished!
+********** replication  6  **********
+epoch   0 LossPred 1.0027 LossAtt 1.0000 TrainAcc 0.4600 TestAcc 0.5075
+epoch  50 LossPred 0.6468 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5160
+epoch 100 LossPred 0.4964 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.5885
+epoch 150 LossPred 0.4577 LossAtt 1.0000 TrainAcc 0.8600 TestAcc 0.5865
+epoch 200 LossPred 0.3961 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.6010
+epoch 250 LossPred 0.3113 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6400
+epoch 300 LossPred 0.1762 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6630
+epoch 350 LossPred 0.1568 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6755
+epoch 400 LossPred 0.0724 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6850
+Optimization Finished!
+********** replication  7  **********
+epoch   0 LossPred 1.0124 LossAtt 1.0000 TrainAcc 0.4400 TestAcc 0.4985
+epoch  50 LossPred 0.7775 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.5920
+epoch 100 LossPred 0.3883 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.6195
+epoch 150 LossPred 0.1137 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6790
+epoch 200 LossPred 0.0426 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6795
+Optimization Finished!
+********** replication  8  **********
+epoch   0 LossPred 0.9881 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6670 LossAtt 1.0000 TrainAcc 0.8000 TestAcc 0.5270
+epoch 100 LossPred 0.1284 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6505
+epoch 150 LossPred 0.0082 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6490
+Optimization Finished!
+********** replication  9  **********
+epoch   0 LossPred 0.9995 LossAtt 1.0000 TrainAcc 0.5200 TestAcc 0.5485
+epoch  50 LossPred 0.7418 LossAtt 1.0000 TrainAcc 0.8000 TestAcc 0.6310
+epoch 100 LossPred 0.3878 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6550
+epoch 150 LossPred 0.3435 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.6645
+epoch 200 LossPred 0.1960 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6965
+epoch 250 LossPred 0.1033 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6505
+epoch 300 LossPred 0.0236 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6760
+Optimization Finished!
+********** replication  10  **********
+epoch   0 LossPred 1.0213 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6424 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5945
+epoch 100 LossPred 0.2507 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6310
+epoch 150 LossPred 0.1704 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6245
+epoch 200 LossPred 0.1632 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6245
+epoch 250 LossPred 0.1612 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6220
+epoch 300 LossPred 0.1601 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6210
+epoch 350 LossPred 0.1593 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6180
+epoch 400 LossPred 0.1584 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6240
+epoch 450 LossPred 0.1570 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6235
+epoch 500 LossPred 0.1527 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6245
+epoch 550 LossPred 0.6471 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.5740
+epoch 600 LossPred 0.1762 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6170
+epoch 650 LossPred 0.1582 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6415
+epoch 700 LossPred 0.1519 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6400
+epoch 750 LossPred 0.1418 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6480
+epoch 800 LossPred 0.1239 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6410
+epoch 850 LossPred 0.0962 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6400
+epoch 900 LossPred 0.0567 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.7195
+Optimization Finished!
+********** replication  11  **********
+epoch   0 LossPred 1.0321 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.8272 LossAtt 1.0000 TrainAcc 0.6800 TestAcc 0.5450
+epoch 100 LossPred 0.4567 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.5960
+epoch 150 LossPred 0.0744 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6280
+Optimization Finished!
+********** replication  12  **********
+epoch   0 LossPred 1.0335 LossAtt 1.0000 TrainAcc 0.3800 TestAcc 0.4880
+epoch  50 LossPred 0.7315 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.5510
+epoch 100 LossPred 0.4792 LossAtt 1.0000 TrainAcc 0.8600 TestAcc 0.5645
+epoch 150 LossPred 0.3327 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6100
+epoch 200 LossPred 0.2288 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6015
+epoch 250 LossPred 0.1344 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6015
+epoch 300 LossPred 0.0384 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6455
+Optimization Finished!
+********** replication  13  **********
+epoch   0 LossPred 1.0384 LossAtt 1.0000 TrainAcc 0.4000 TestAcc 0.5210
+epoch  50 LossPred 0.8050 LossAtt 1.0000 TrainAcc 0.7200 TestAcc 0.5295
+epoch 100 LossPred 0.2362 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5885
+epoch 150 LossPred 0.0128 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6010
+Optimization Finished!
+********** replication  14  **********
+epoch   0 LossPred 0.9966 LossAtt 1.0000 TrainAcc 0.4800 TestAcc 0.4845
+epoch  50 LossPred 0.6969 LossAtt 1.0000 TrainAcc 0.8000 TestAcc 0.5850
+epoch 100 LossPred 0.2140 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5880
+epoch 150 LossPred 0.0633 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6250
+Optimization Finished!
+********** replication  15  **********
+epoch   0 LossPred 1.0042 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7683 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.5570
+epoch 100 LossPred 0.3394 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6155
+epoch 150 LossPred 0.2405 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6125
+epoch 200 LossPred 0.2410 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6180
+epoch 250 LossPred 0.2157 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6250
+epoch 300 LossPred 0.2000 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.5950
+epoch 350 LossPred 0.1648 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6345
+epoch 400 LossPred 0.1096 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7005
+epoch 450 LossPred 0.0339 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6935
+Optimization Finished!
+********** replication  16  **********
+epoch   0 LossPred 1.0191 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.8145 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.5985
+epoch 100 LossPred 0.2290 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5970
+epoch 150 LossPred 0.0944 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6355
+epoch 200 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6135
+epoch 250 LossPred 0.0773 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6160
+epoch 300 LossPred 0.0716 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6220
+epoch 350 LossPred 0.0522 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6250
+epoch 400 LossPred 0.2072 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6310
+epoch 450 LossPred 0.0201 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6535
+Optimization Finished!
+********** replication  17  **********
+epoch   0 LossPred 1.0183 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7474 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.5710
+epoch 100 LossPred 0.4087 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6080
+epoch 150 LossPred 0.2427 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6005
+epoch 200 LossPred 0.1934 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.5795
+epoch 250 LossPred 0.1133 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6005
+epoch 300 LossPred 0.0952 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6210
+epoch 350 LossPred 0.0880 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6205
+epoch 400 LossPred 0.0847 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6225
+epoch 450 LossPred 0.0830 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6205
+epoch 500 LossPred 0.0821 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6165
+epoch 550 LossPred 0.0815 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6150
+epoch 600 LossPred 0.0812 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6145
+epoch 650 LossPred 0.0810 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6060
+epoch 700 LossPred 0.0808 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6050
+epoch 750 LossPred 0.0807 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6035
+epoch 800 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6025
+epoch 850 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6020
+epoch 900 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6025
+epoch 950 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6025
+epoch 1000 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6105
+epoch 1050 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6115
+epoch 1100 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6120
+epoch 1150 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6110
+epoch 1200 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6110
+epoch 1250 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6115
+epoch 1300 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6120
+epoch 1350 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6115
+epoch 1400 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6115
+epoch 1450 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6085
+epoch 1500 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6070
+epoch 1550 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6050
+epoch 1600 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6050
+epoch 1650 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 1700 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 1750 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 1800 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 1850 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 1900 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 1950 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 2000 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 2050 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 2100 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 2150 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6060
+epoch 2200 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6060
+epoch 2250 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6060
+epoch 2300 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6060
+epoch 2350 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 2400 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 2450 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 2500 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+Optimization Finished!
+********** replication  18  **********
+epoch   0 LossPred 1.0049 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5250
+epoch  50 LossPred 0.7262 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.5935
+epoch 100 LossPred 0.2258 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6315
+epoch 150 LossPred 0.1258 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6625
+epoch 200 LossPred 0.0909 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6635
+epoch 250 LossPred 0.0242 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6745
+Optimization Finished!
+********** replication  19  **********
+epoch   0 LossPred 1.0009 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6940 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5630
+epoch 100 LossPred 0.2199 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6240
+epoch 150 LossPred 0.0294 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6340
+Optimization Finished!
+********** replication  20  **********
+epoch   0 LossPred 0.9956 LossAtt 1.0000 TrainAcc 0.5200 TestAcc 0.4875
+epoch  50 LossPred 0.7237 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5380
+epoch 100 LossPred 0.3235 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.5710
+epoch 150 LossPred 0.1023 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6645
+epoch 200 LossPred 0.0081 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6545
+Optimization Finished!
+********** replication  21  **********
+epoch   0 LossPred 0.9977 LossAtt 1.0000 TrainAcc 0.4800 TestAcc 0.4625
+epoch  50 LossPred 0.7075 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5275
+epoch 100 LossPred 0.4302 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.6125
+epoch 150 LossPred 0.2030 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6620
+epoch 200 LossPred 0.1029 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6585
+epoch 250 LossPred 0.0344 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6645
+Optimization Finished!
+********** replication  22  **********
+epoch   0 LossPred 1.0042 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6997 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.6080
+epoch 100 LossPred 0.4056 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6500
+epoch 150 LossPred 0.1829 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6225
+epoch 200 LossPred 0.0807 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6275
+epoch 250 LossPred 0.0225 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6395
+Optimization Finished!
+********** replication  23  **********
+epoch   0 LossPred 1.0185 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.8012 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.5675
+epoch 100 LossPred 0.4255 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6180
+epoch 150 LossPred 0.2023 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6720
+epoch 200 LossPred 0.1428 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6580
+epoch 250 LossPred 0.0096 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6960
+Optimization Finished!
+********** replication  24  **********
+epoch   0 LossPred 1.0003 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7252 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.6185
+epoch 100 LossPred 0.3530 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.5890
+epoch 150 LossPred 0.1809 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6070
+epoch 200 LossPred 0.1158 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6335
+epoch 250 LossPred 0.0911 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6225
+epoch 300 LossPred 0.0845 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6220
+epoch 350 LossPred 0.0818 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6225
+epoch 400 LossPred 0.8802 LossAtt 1.0000 TrainAcc 0.7200 TestAcc 0.5485
+epoch 450 LossPred 0.3291 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6780
+epoch 500 LossPred 0.1928 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6695
+epoch 550 LossPred 0.0990 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6650
+epoch 600 LossPred 0.0885 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6570
+epoch 650 LossPred 0.0853 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6570
+epoch 700 LossPred 0.0837 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6610
+epoch 750 LossPred 0.0828 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6615
+epoch 800 LossPred 0.0822 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6620
+epoch 850 LossPred 0.0818 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6620
+epoch 900 LossPred 0.0815 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6605
+epoch 950 LossPred 0.0812 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6605
+epoch 1000 LossPred 0.0810 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6600
+epoch 1050 LossPred 0.0809 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6600
+epoch 1100 LossPred 0.0807 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6600
+epoch 1150 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6600
+epoch 1200 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6600
+epoch 1250 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6610
+epoch 1300 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6615
+epoch 1350 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6615
+epoch 1400 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6620
+epoch 1450 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6620
+epoch 1500 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6680
+epoch 1550 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6680
+epoch 1600 LossPred 0.0799 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6660
+epoch 1650 LossPred 0.0797 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6660
+epoch 1700 LossPred 0.0792 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6650
+epoch 1750 LossPred 0.0780 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6640
+epoch 1800 LossPred 0.0534 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6620
+epoch 1850 LossPred 0.0032 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6930
+Optimization Finished!
+********** replication  25  **********
+epoch   0 LossPred 0.9965 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.5993 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.6360
+epoch 100 LossPred 0.1855 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6600
+epoch 150 LossPred 0.0997 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6970
+epoch 200 LossPred 0.0102 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.7000
+Optimization Finished!
+********** replication  26  **********
+epoch   0 LossPred 0.9957 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5070
+epoch  50 LossPred 0.7116 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.5545
+epoch 100 LossPred 0.3275 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6310
+epoch 150 LossPred 0.1572 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6565
+epoch 200 LossPred 0.0929 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6550
+epoch 250 LossPred 0.0851 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6620
+epoch 300 LossPred 0.0826 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6680
+epoch 350 LossPred 0.0807 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6680
+epoch 400 LossPred 0.0137 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6540
+Optimization Finished!
+********** replication  27  **********
+epoch   0 LossPred 0.9915 LossAtt 1.0000 TrainAcc 0.5400 TestAcc 0.4740
+epoch  50 LossPred 0.6672 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.5830
+epoch 100 LossPred 0.2357 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6545
+epoch 150 LossPred 0.0719 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6850
+epoch 200 LossPred 0.0246 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6760
+Optimization Finished!
+********** replication  28  **********
+epoch   0 LossPred 1.0041 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7264 LossAtt 1.0000 TrainAcc 0.7200 TestAcc 0.5060
+epoch 100 LossPred 0.3714 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.5590
+epoch 150 LossPred 0.1822 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5900
+epoch 200 LossPred 0.0481 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6305
+Optimization Finished!
+********** replication  29  **********
+epoch   0 LossPred 1.0403 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7866 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.5650
+epoch 100 LossPred 0.3707 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6345
+epoch 150 LossPred 0.0368 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6310
+Optimization Finished!
+********** replication  30  **********
+epoch   0 LossPred 1.0032 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6793 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.5770
+epoch 100 LossPred 0.2564 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.5805
+epoch 150 LossPred 0.1728 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5960
+epoch 200 LossPred 0.1631 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5880
+epoch 250 LossPred 0.1607 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5935
+epoch 300 LossPred 0.1463 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6085
+epoch 350 LossPred 0.0853 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6135
+epoch 400 LossPred 0.0820 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6165
+epoch 450 LossPred 0.0783 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6195
+epoch 500 LossPred 0.0732 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6460
+epoch 550 LossPred 0.0085 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6590
+Optimization Finished!
+********** replication  31  **********
+epoch   0 LossPred 0.9886 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6960 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5055
+epoch 100 LossPred 0.2726 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.5990
+epoch 150 LossPred 0.1786 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6285
+epoch 200 LossPred 0.1604 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6215
+epoch 250 LossPred 0.1454 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6000
+epoch 300 LossPred 0.0314 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6520
+Optimization Finished!
+********** replication  32  **********
+epoch   0 LossPred 0.9994 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7542 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.6070
+epoch 100 LossPred 0.3740 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6360
+epoch 150 LossPred 0.0564 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6480
+Optimization Finished!
+********** replication  33  **********
+epoch   0 LossPred 1.0168 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7842 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.5490
+epoch 100 LossPred 0.3487 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6400
+epoch 150 LossPred 0.1927 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6375
+epoch 200 LossPred 0.0974 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6325
+epoch 250 LossPred 0.0858 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6320
+epoch 300 LossPred 0.0831 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6305
+epoch 350 LossPred 0.0819 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6355
+epoch 400 LossPred 0.0813 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6350
+epoch 450 LossPred 0.0810 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6335
+epoch 500 LossPred 0.0808 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6355
+epoch 550 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6345
+epoch 600 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6355
+epoch 650 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6355
+epoch 700 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6455
+epoch 750 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6450
+epoch 800 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6450
+epoch 850 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6450
+epoch 900 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6445
+epoch 950 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6445
+epoch 1000 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6445
+epoch 1050 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6450
+epoch 1100 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6450
+epoch 1150 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6450
+epoch 1200 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6455
+epoch 1250 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6455
+epoch 1300 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6455
+epoch 1350 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6455
+epoch 1400 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6455
+epoch 1450 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6450
+epoch 1500 LossPred 0.0799 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6450
+epoch 1550 LossPred 0.0798 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6435
+epoch 1600 LossPred 0.0797 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6470
+epoch 1650 LossPred 0.0790 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6410
+epoch 1700 LossPred 0.5575 LossAtt 1.0000 TrainAcc 0.8600 TestAcc 0.5755
+epoch 1750 LossPred 0.0811 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6300
+epoch 1800 LossPred 0.0673 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6330
+epoch 1850 LossPred 0.0142 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6170
+Optimization Finished!
+********** replication  34  **********
+epoch   0 LossPred 1.0805 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7259 LossAtt 1.0000 TrainAcc 0.8000 TestAcc 0.5745
+epoch 100 LossPred 0.2629 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6555
+epoch 150 LossPred 0.1220 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6430
+epoch 200 LossPred 0.0917 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6340
+epoch 250 LossPred 0.0839 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6330
+epoch 300 LossPred 0.1667 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6020
+epoch 350 LossPred 0.0072 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6030
+Optimization Finished!
+********** replication  35  **********
+epoch   0 LossPred 1.0275 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7282 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.4955
+epoch 100 LossPred 0.2397 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.5915
+epoch 150 LossPred 0.0253 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6420
+Optimization Finished!
+********** replication  36  **********
+epoch   0 LossPred 1.0054 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5005
+epoch  50 LossPred 0.5626 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5885
+epoch 100 LossPred 0.1590 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6370
+epoch 150 LossPred 0.0147 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6235
+Optimization Finished!
+********** replication  37  **********
+epoch   0 LossPred 0.9881 LossAtt 1.0000 TrainAcc 0.6000 TestAcc 0.5230
+epoch  50 LossPred 0.5425 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5915
+epoch 100 LossPred 0.2187 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6415
+epoch 150 LossPred 0.0136 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6395
+Optimization Finished!
+********** replication  38  **********
+epoch   0 LossPred 1.0715 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7833 LossAtt 1.0000 TrainAcc 0.6600 TestAcc 0.5605
+epoch 100 LossPred 0.4119 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6630
+epoch 150 LossPred 0.2280 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6460
+epoch 200 LossPred 0.0919 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 250 LossPred 0.0836 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6270
+epoch 300 LossPred 0.0815 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6290
+epoch 350 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6305
+epoch 400 LossPred 0.0791 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6320
+epoch 450 LossPred 0.0766 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6300
+epoch 500 LossPred 0.3462 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.6160
+epoch 550 LossPred 0.0402 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6570
+epoch 600 LossPred 0.0133 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6720
+Optimization Finished!
+********** replication  39  **********
+epoch   0 LossPred 1.0241 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7631 LossAtt 1.0000 TrainAcc 0.7200 TestAcc 0.5750
+epoch 100 LossPred 0.2238 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6400
+epoch 150 LossPred 0.0565 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6490
+Optimization Finished!
+********** replication  40  **********
+epoch   0 LossPred 1.0151 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6220 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.5855
+epoch 100 LossPred 0.3656 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6080
+epoch 150 LossPred 0.2717 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6350
+epoch 200 LossPred 0.1767 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6540
+epoch 250 LossPred 0.1656 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6605
+epoch 300 LossPred 0.1628 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6610
+epoch 350 LossPred 0.1615 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6640
+epoch 400 LossPred 0.1608 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6680
+epoch 450 LossPred 0.1603 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6680
+epoch 500 LossPred 0.1600 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6675
+epoch 550 LossPred 0.1597 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6685
+epoch 600 LossPred 0.1595 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6675
+epoch 650 LossPred 0.1593 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6640
+epoch 700 LossPred 0.1590 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6640
+epoch 750 LossPred 0.1587 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6575
+epoch 800 LossPred 0.1584 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6580
+epoch 850 LossPred 0.1578 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6570
+epoch 900 LossPred 0.1569 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6565
+epoch 950 LossPred 0.1551 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6570
+epoch 1000 LossPred 0.1504 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6580
+epoch 1050 LossPred 0.1297 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6525
+epoch 1100 LossPred 0.0920 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6575
+epoch 1150 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6610
+epoch 1200 LossPred 0.0743 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6685
+epoch 1250 LossPred 0.0687 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6675
+epoch 1300 LossPred 0.0604 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6770
+epoch 1350 LossPred 1.4034 LossAtt 1.0000 TrainAcc 0.6200 TestAcc 0.4775
+epoch 1400 LossPred 0.0347 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6515
+epoch 1450 LossPred 0.0129 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6640
+Optimization Finished!
+********** replication  41  **********
+epoch   0 LossPred 1.0382 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7130 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.5360
+epoch 100 LossPred 0.2280 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5925
+epoch 150 LossPred 0.0326 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.5965
+Optimization Finished!
+********** replication  42  **********
+epoch   0 LossPred 1.0447 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.9216 LossAtt 1.0000 TrainAcc 0.6800 TestAcc 0.5950
+epoch 100 LossPred 0.5324 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.6290
+epoch 150 LossPred 0.1328 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7240
+epoch 200 LossPred 0.0198 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.7395
+Optimization Finished!
+********** replication  43  **********
+epoch   0 LossPred 1.0308 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6513 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6360
+epoch 100 LossPred 0.2925 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6440
+epoch 150 LossPred 0.1157 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6330
+Optimization Finished!
+********** replication  44  **********
+epoch   0 LossPred 1.0144 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7851 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.5475
+epoch 100 LossPred 0.1920 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5435
+epoch 150 LossPred 0.0798 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5585
+epoch 200 LossPred 0.0322 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6050
+Optimization Finished!
+********** replication  45  **********
+epoch   0 LossPred 1.0297 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.5629 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.5505
+epoch 100 LossPred 0.3241 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.5920
+epoch 150 LossPred 0.0439 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6340
+Optimization Finished!
+********** replication  46  **********
+epoch   0 LossPred 1.0363 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.8102 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.5165
+epoch 100 LossPred 0.2604 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5750
+epoch 150 LossPred 0.0229 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6010
+Optimization Finished!
+********** replication  47  **********
+epoch   0 LossPred 0.9977 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6557 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.5980
+epoch 100 LossPred 0.4529 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.6050
+epoch 150 LossPred 0.2658 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6245
+epoch 200 LossPred 0.2037 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6145
+epoch 250 LossPred 0.1395 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6305
+epoch 300 LossPred 0.0831 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6345
+epoch 350 LossPred 0.0282 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6395
+Optimization Finished!
+********** replication  48  **********
+epoch   0 LossPred 1.0018 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6823 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.5510
+epoch 100 LossPred 0.1639 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5955
+epoch 150 LossPred 0.0312 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6495
+Optimization Finished!
+********** replication  49  **********
+epoch   0 LossPred 0.9947 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.4550
+epoch  50 LossPred 0.7139 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.5445
+epoch 100 LossPred 0.1676 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6660
+epoch 150 LossPred 0.0128 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6635
+Optimization Finished!
+********** replication  50  **********
+epoch   0 LossPred 1.0022 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6717 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5360
+epoch 100 LossPred 0.1925 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6005
+epoch 150 LossPred 0.0856 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6215
+epoch 200 LossPred 0.0086 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6240
+Optimization Finished!
+********** replication  51  **********
+epoch   0 LossPred 0.9904 LossAtt 1.0000 TrainAcc 0.5800 TestAcc 0.5180
+epoch  50 LossPred 0.6840 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.6090
+epoch 100 LossPred 0.5724 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.6295
+epoch 150 LossPred 0.4863 LossAtt 1.0000 TrainAcc 0.8600 TestAcc 0.6345
+epoch 200 LossPred 0.3956 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6545
+epoch 250 LossPred 0.3004 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6735
+epoch 300 LossPred 0.2557 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6710
+epoch 350 LossPred 0.2048 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6710
+epoch 400 LossPred 0.1709 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6735
+epoch 450 LossPred 0.1475 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6750
+epoch 500 LossPred 0.1256 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6685
+epoch 550 LossPred 0.0946 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6695
+epoch 600 LossPred 0.0478 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6710
+Optimization Finished!
+********** replication  52  **********
+epoch   0 LossPred 0.9948 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6630 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5440
+epoch 100 LossPred 0.1945 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6200
+epoch 150 LossPred 0.1151 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6155
+epoch 200 LossPred 0.0936 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6150
+epoch 250 LossPred 0.0871 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6190
+epoch 300 LossPred 0.0844 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6215
+epoch 350 LossPred 0.0830 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6210
+epoch 400 LossPred 0.0821 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6210
+epoch 450 LossPred 0.0816 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6205
+epoch 500 LossPred 0.0812 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6195
+epoch 550 LossPred 0.0809 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6200
+epoch 600 LossPred 0.0807 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6200
+epoch 650 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6195
+epoch 700 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6165
+epoch 750 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6160
+epoch 800 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6160
+epoch 850 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6160
+epoch 900 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6160
+epoch 950 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6160
+epoch 1000 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6160
+epoch 1050 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6160
+epoch 1100 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6160
+epoch 1150 LossPred 0.0799 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6165
+epoch 1200 LossPred 0.0799 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6170
+epoch 1250 LossPred 0.0798 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6170
+epoch 1300 LossPred 0.0798 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6170
+epoch 1350 LossPred 0.0797 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6180
+epoch 1400 LossPred 0.0796 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6175
+epoch 1450 LossPred 0.0795 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6175
+epoch 1500 LossPred 0.0793 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6240
+epoch 1550 LossPred 0.0790 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6190
+epoch 1600 LossPred 0.0784 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6155
+epoch 1650 LossPred 0.0763 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6150
+epoch 1700 LossPred 0.0097 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.5980
+Optimization Finished!
+********** replication  53  **********
+epoch   0 LossPred 0.9985 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5085
+epoch  50 LossPred 0.7448 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.5790
+epoch 100 LossPred 0.5932 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.5985
+epoch 150 LossPred 0.4731 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.6505
+epoch 200 LossPred 0.3194 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6260
+epoch 250 LossPred 0.2161 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6310
+epoch 300 LossPred 0.0854 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6355
+epoch 350 LossPred 0.0082 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6505
+Optimization Finished!
+********** replication  54  **********
+epoch   0 LossPred 0.9913 LossAtt 1.0000 TrainAcc 0.5600 TestAcc 0.4810
+epoch  50 LossPred 0.6717 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.6030
+epoch 100 LossPred 0.3266 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6670
+epoch 150 LossPred 0.1900 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6805
+epoch 200 LossPred 0.1197 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6760
+epoch 250 LossPred 0.0937 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6880
+epoch 300 LossPred 0.0873 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6910
+epoch 350 LossPred 0.0846 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6900
+epoch 400 LossPred 0.0832 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6890
+epoch 450 LossPred 0.0824 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6900
+epoch 500 LossPred 0.0818 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6930
+epoch 550 LossPred 0.0815 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6925
+epoch 600 LossPred 0.0812 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6930
+epoch 650 LossPred 0.0810 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6945
+epoch 700 LossPred 0.0808 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6935
+epoch 750 LossPred 0.0807 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6940
+epoch 800 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6955
+epoch 850 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6945
+epoch 900 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6945
+epoch 950 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6930
+epoch 1000 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6930
+epoch 1050 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6925
+epoch 1100 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6920
+epoch 1150 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6910
+epoch 1200 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6915
+epoch 1250 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6915
+epoch 1300 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6915
+epoch 1350 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6915
+epoch 1400 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6875
+epoch 1450 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6875
+epoch 1500 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6875
+epoch 1550 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6875
+epoch 1600 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6875
+epoch 1650 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6880
+epoch 1700 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6885
+epoch 1750 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6915
+epoch 1800 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6915
+epoch 1850 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6915
+epoch 1900 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6910
+epoch 1950 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6910
+epoch 2000 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6910
+epoch 2050 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6915
+epoch 2100 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6915
+epoch 2150 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6920
+epoch 2200 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6920
+epoch 2250 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6920
+epoch 2300 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6920
+epoch 2350 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6920
+epoch 2400 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6920
+epoch 2450 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6920
+epoch 2500 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6920
+Optimization Finished!
+********** replication  55  **********
+epoch   0 LossPred 1.0059 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6562 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.5210
+epoch 100 LossPred 0.3133 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6025
+epoch 150 LossPred 0.1419 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6110
+epoch 200 LossPred 0.0982 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6240
+epoch 250 LossPred 0.0868 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6455
+epoch 300 LossPred 0.0840 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6435
+epoch 350 LossPred 0.0827 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6455
+epoch 400 LossPred 0.0819 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6465
+epoch 450 LossPred 0.0815 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6450
+epoch 500 LossPred 0.0811 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6445
+epoch 550 LossPred 0.0809 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6445
+epoch 600 LossPred 0.0808 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6445
+epoch 650 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6435
+epoch 700 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6435
+epoch 750 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6435
+epoch 800 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6435
+epoch 850 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6435
+epoch 900 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6430
+epoch 950 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6435
+epoch 1000 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6435
+epoch 1050 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6400
+epoch 1100 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6400
+epoch 1150 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6400
+epoch 1200 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 1250 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6380
+epoch 1300 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6385
+epoch 1350 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6385
+epoch 1400 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6385
+epoch 1450 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6385
+epoch 1500 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6385
+epoch 1550 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6385
+epoch 1600 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6385
+epoch 1650 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 1700 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 1750 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 1800 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 1850 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 1900 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 1950 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 2000 LossPred 0.0799 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 2050 LossPred 0.0799 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 2100 LossPred 0.0799 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 2150 LossPred 0.0799 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6375
+epoch 2200 LossPred 0.0799 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6335
+epoch 2250 LossPred 0.0798 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6365
+epoch 2300 LossPred 0.0797 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6355
+epoch 2350 LossPred 0.0796 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6330
+epoch 2400 LossPred 0.0791 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6370
+epoch 2450 LossPred 0.9495 LossAtt 1.0000 TrainAcc 0.6600 TestAcc 0.5075
+epoch 2500 LossPred 0.2465 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.5765
+Optimization Finished!
+********** replication  56  **********
+epoch   0 LossPred 1.0025 LossAtt 1.0000 TrainAcc 0.5400 TestAcc 0.5255
+epoch  50 LossPred 0.6117 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.5520
+epoch 100 LossPred 0.1438 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6055
+epoch 150 LossPred 0.0876 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6000
+epoch 200 LossPred 0.0829 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5990
+epoch 250 LossPred 0.0815 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5980
+epoch 300 LossPred 0.0809 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5945
+epoch 350 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5925
+epoch 400 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5900
+epoch 450 LossPred 0.0799 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5885
+epoch 500 LossPred 0.0794 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5910
+epoch 550 LossPred 0.0186 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6260
+Optimization Finished!
+********** replication  57  **********
+epoch   0 LossPred 1.0079 LossAtt 1.0000 TrainAcc 0.4400 TestAcc 0.5245
+epoch  50 LossPred 0.6614 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.6335
+epoch 100 LossPred 0.2237 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6680
+epoch 150 LossPred 0.0971 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6755
+epoch 200 LossPred 0.0827 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6635
+epoch 250 LossPred 0.0714 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6610
+epoch 300 LossPred 0.0081 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6610
+Optimization Finished!
+********** replication  58  **********
+epoch   0 LossPred 1.0141 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7127 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5715
+epoch 100 LossPred 0.3103 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.7160
+epoch 150 LossPred 0.1863 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.7150
+epoch 200 LossPred 0.0915 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7185
+epoch 250 LossPred 0.0840 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7265
+epoch 300 LossPred 0.0823 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7285
+epoch 350 LossPred 0.0815 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7305
+epoch 400 LossPred 0.0811 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7270
+epoch 450 LossPred 0.0808 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7260
+epoch 500 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7210
+epoch 550 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7235
+epoch 600 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7250
+epoch 650 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7220
+epoch 700 LossPred 0.2875 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.7040
+epoch 750 LossPred 0.0031 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.7525
+Optimization Finished!
+********** replication  59  **********
+epoch   0 LossPred 1.0647 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7868 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5815
+epoch 100 LossPred 0.2987 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6145
+epoch 150 LossPred 0.1506 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6055
+epoch 200 LossPred 0.1030 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6330
+epoch 250 LossPred 0.0841 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6480
+epoch 300 LossPred 0.0788 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6405
+epoch 350 LossPred 0.0666 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6360
+epoch 400 LossPred 0.0046 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6335
+Optimization Finished!
+********** replication  60  **********
+epoch   0 LossPred 1.0005 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7732 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.5280
+epoch 100 LossPred 0.1685 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5690
+epoch 150 LossPred 0.0112 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.5965
+Optimization Finished!
+********** replication  61  **********
+epoch   0 LossPred 1.0165 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7039 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5410
+epoch 100 LossPred 0.2883 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6080
+epoch 150 LossPred 0.1449 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6255
+epoch 200 LossPred 0.1007 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6195
+epoch 250 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6315
+epoch 300 LossPred 0.0072 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6225
+Optimization Finished!
+********** replication  62  **********
+epoch   0 LossPred 1.0115 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7403 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5610
+epoch 100 LossPred 0.3087 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6410
+epoch 150 LossPred 0.2022 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6295
+epoch 200 LossPred 0.1692 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6350
+epoch 250 LossPred 0.1633 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6340
+epoch 300 LossPred 0.1613 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6335
+epoch 350 LossPred 0.1603 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6335
+epoch 400 LossPred 0.1596 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6325
+epoch 450 LossPred 0.1588 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6335
+epoch 500 LossPred 0.1576 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6325
+epoch 550 LossPred 0.1552 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6315
+epoch 600 LossPred 0.1502 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6290
+epoch 650 LossPred 0.1443 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6265
+epoch 700 LossPred 0.1366 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6360
+epoch 750 LossPred 0.1222 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6330
+epoch 800 LossPred 0.0866 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6420
+epoch 850 LossPred 1.0243 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch 900 LossPred 0.9923 LossAtt 1.0000 TrainAcc 0.5400 TestAcc 0.4810
+epoch 950 LossPred 0.9821 LossAtt 1.0000 TrainAcc 0.5800 TestAcc 0.4980
+epoch 1000 LossPred 0.9716 LossAtt 1.0000 TrainAcc 0.5800 TestAcc 0.4980
+epoch 1050 LossPred 0.9635 LossAtt 1.0000 TrainAcc 0.5800 TestAcc 0.4980
+epoch 1100 LossPred 0.9500 LossAtt 1.0000 TrainAcc 0.5800 TestAcc 0.4980
+epoch 1150 LossPred 0.9094 LossAtt 1.0000 TrainAcc 0.6000 TestAcc 0.5055
+epoch 1200 LossPred 0.8330 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.5210
+epoch 1250 LossPred 0.7573 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.5650
+epoch 1300 LossPred 0.5230 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.6725
+epoch 1350 LossPred 0.2220 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6750
+epoch 1400 LossPred 0.0834 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6605
+Optimization Finished!
+********** replication  63  **********
+epoch   0 LossPred 0.9877 LossAtt 1.0000 TrainAcc 0.6000 TestAcc 0.4840
+epoch  50 LossPred 0.6076 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5635
+epoch 100 LossPred 0.2898 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.5830
+epoch 150 LossPred 0.0737 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6145
+epoch 200 LossPred 0.0084 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6760
+Optimization Finished!
+********** replication  64  **********
+epoch   0 LossPred 1.0097 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6935 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.5130
+epoch 100 LossPred 0.2336 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.5690
+epoch 150 LossPred 0.0865 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5800
+epoch 200 LossPred 0.0509 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6115
+epoch 250 LossPred 0.0051 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6240
+Optimization Finished!
+********** replication  65  **********
+epoch   0 LossPred 0.9970 LossAtt 1.0000 TrainAcc 0.5200 TestAcc 0.5150
+epoch  50 LossPred 0.7581 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5295
+epoch 100 LossPred 0.2105 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6080
+epoch 150 LossPred 0.0753 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6335
+epoch 200 LossPred 0.0092 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6410
+Optimization Finished!
+********** replication  66  **********
+epoch   0 LossPred 1.0024 LossAtt 1.0000 TrainAcc 0.5400 TestAcc 0.5415
+epoch  50 LossPred 0.7307 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.5070
+epoch 100 LossPred 0.5158 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5710
+epoch 150 LossPred 0.3831 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6275
+epoch 200 LossPred 0.2529 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6440
+epoch 250 LossPred 0.1797 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6480
+epoch 300 LossPred 0.1516 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6535
+epoch 350 LossPred 0.5219 LossAtt 1.0000 TrainAcc 0.8600 TestAcc 0.5880
+epoch 400 LossPred 0.1371 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6495
+epoch 450 LossPred 0.0926 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6495
+epoch 500 LossPred 0.0863 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6570
+epoch 550 LossPred 0.0838 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6575
+epoch 600 LossPred 0.0825 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6575
+epoch 650 LossPred 0.0818 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6600
+epoch 700 LossPred 0.0813 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6605
+epoch 750 LossPred 0.0809 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6595
+epoch 800 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6595
+epoch 850 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6595
+epoch 900 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6600
+epoch 950 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6575
+epoch 1000 LossPred 0.0799 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6575
+epoch 1050 LossPred 0.0798 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6575
+epoch 1100 LossPred 0.0797 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6575
+epoch 1150 LossPred 0.0795 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6580
+epoch 1200 LossPred 0.0794 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6585
+epoch 1250 LossPred 0.0792 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6580
+epoch 1300 LossPred 0.0789 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6595
+epoch 1350 LossPred 0.0786 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6575
+epoch 1400 LossPred 0.0781 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6570
+epoch 1450 LossPred 0.0773 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6570
+epoch 1500 LossPred 0.0759 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6505
+epoch 1550 LossPred 0.0727 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6455
+epoch 1600 LossPred 0.0642 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6610
+epoch 1650 LossPred 0.0367 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6660
+epoch 1700 LossPred 0.0072 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6695
+Optimization Finished!
+********** replication  67  **********
+epoch   0 LossPred 0.9979 LossAtt 1.0000 TrainAcc 0.5200 TestAcc 0.5060
+epoch  50 LossPred 0.6230 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.6275
+epoch 100 LossPred 0.3134 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6535
+epoch 150 LossPred 0.1133 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6175
+epoch 200 LossPred 0.0834 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6170
+epoch 250 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6180
+epoch 300 LossPred 0.0792 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6190
+epoch 350 LossPred 0.0779 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6215
+epoch 400 LossPred 0.0759 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6310
+epoch 450 LossPred 0.0689 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6245
+epoch 500 LossPred 0.2270 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6080
+epoch 550 LossPred 0.1180 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5970
+epoch 600 LossPred 0.0807 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6205
+epoch 650 LossPred 0.0090 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6215
+Optimization Finished!
+********** replication  68  **********
+epoch   0 LossPred 1.0143 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.4920
+epoch  50 LossPred 0.7554 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5690
+epoch 100 LossPred 0.1678 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6025
+epoch 150 LossPred 0.0160 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6695
+Optimization Finished!
+********** replication  69  **********
+epoch   0 LossPred 1.0377 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7329 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.4915
+epoch 100 LossPred 0.2837 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6240
+epoch 150 LossPred 0.0552 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6425
+Optimization Finished!
+********** replication  70  **********
+epoch   0 LossPred 1.0200 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7234 LossAtt 1.0000 TrainAcc 0.7200 TestAcc 0.5040
+epoch 100 LossPred 0.2966 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.5705
+epoch 150 LossPred 0.0392 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6840
+Optimization Finished!
+********** replication  71  **********
+epoch   0 LossPred 1.0509 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7183 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.5835
+epoch 100 LossPred 0.4154 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6140
+epoch 150 LossPred 0.3762 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.5745
+epoch 200 LossPred 0.3656 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.5880
+epoch 250 LossPred 0.2940 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6015
+epoch 300 LossPred 0.2322 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6035
+epoch 350 LossPred 0.1857 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6355
+epoch 400 LossPred 0.1470 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6400
+epoch 450 LossPred 0.1052 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6460
+epoch 500 LossPred 0.0283 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6495
+Optimization Finished!
+********** replication  72  **********
+epoch   0 LossPred 1.0223 LossAtt 1.0000 TrainAcc 0.4400 TestAcc 0.5300
+epoch  50 LossPred 0.7397 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5565
+epoch 100 LossPred 0.1972 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5850
+epoch 150 LossPred 0.0778 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5960
+epoch 200 LossPred 0.0185 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6665
+Optimization Finished!
+********** replication  73  **********
+epoch   0 LossPred 1.0169 LossAtt 1.0000 TrainAcc 0.4600 TestAcc 0.4790
+epoch  50 LossPred 0.6594 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.5765
+epoch 100 LossPred 0.4502 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5770
+epoch 150 LossPred 0.3106 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6220
+epoch 200 LossPred 0.2150 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6385
+epoch 250 LossPred 0.1680 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6555
+epoch 300 LossPred 0.1475 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6495
+epoch 350 LossPred 0.1375 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6495
+epoch 400 LossPred 0.1282 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6520
+epoch 450 LossPred 0.1152 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6570
+epoch 500 LossPred 0.0940 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6550
+epoch 550 LossPred 0.0606 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6605
+Optimization Finished!
+********** replication  74  **********
+epoch   0 LossPred 1.0206 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7544 LossAtt 1.0000 TrainAcc 0.7200 TestAcc 0.5850
+epoch 100 LossPred 0.2532 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6150
+epoch 150 LossPred 0.1665 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6110
+epoch 200 LossPred 0.1610 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6130
+epoch 250 LossPred 0.1592 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6125
+epoch 300 LossPred 0.1578 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6225
+epoch 350 LossPred 0.1561 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6205
+epoch 400 LossPred 0.1523 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6225
+epoch 450 LossPred 0.1370 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6215
+epoch 500 LossPred 0.0353 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6605
+Optimization Finished!
+********** replication  75  **********
+epoch   0 LossPred 0.9945 LossAtt 1.0000 TrainAcc 0.5400 TestAcc 0.4965
+epoch  50 LossPred 0.7690 LossAtt 1.0000 TrainAcc 0.7200 TestAcc 0.5300
+epoch 100 LossPred 0.2791 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.7260
+epoch 150 LossPred 0.0952 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.7810
+epoch 200 LossPred 0.0162 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.7310
+Optimization Finished!
+********** replication  76  **********
+epoch   0 LossPred 0.9975 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5255
+epoch  50 LossPred 0.6123 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5855
+epoch 100 LossPred 0.2854 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6105
+epoch 150 LossPred 0.1215 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6735
+epoch 200 LossPred 0.0351 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6610
+Optimization Finished!
+********** replication  77  **********
+epoch   0 LossPred 1.0075 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.4955
+epoch  50 LossPred 0.6394 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.5675
+epoch 100 LossPred 0.2422 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6020
+epoch 150 LossPred 0.1115 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6530
+epoch 200 LossPred 0.0112 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6280
+Optimization Finished!
+********** replication  78  **********
+epoch   0 LossPred 1.0073 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7073 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5040
+epoch 100 LossPred 0.1736 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5740
+epoch 150 LossPred 0.0887 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5650
+epoch 200 LossPred 0.0825 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5680
+epoch 250 LossPred 0.0808 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5690
+epoch 300 LossPred 0.0799 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5670
+epoch 350 LossPred 0.0789 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5680
+epoch 400 LossPred 0.0770 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5610
+epoch 450 LossPred 0.6174 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.4925
+epoch 500 LossPred 0.1048 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5880
+epoch 550 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5850
+epoch 600 LossPred 0.0785 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5755
+epoch 650 LossPred 0.0753 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5635
+epoch 700 LossPred 0.0668 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5605
+epoch 750 LossPred 0.0401 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5655
+epoch 800 LossPred 0.0157 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6335
+Optimization Finished!
+********** replication  79  **********
+epoch   0 LossPred 0.9952 LossAtt 1.0000 TrainAcc 0.5200 TestAcc 0.4710
+epoch  50 LossPred 0.6783 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5945
+epoch 100 LossPred 0.2847 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6245
+epoch 150 LossPred 0.1707 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6110
+epoch 200 LossPred 0.4422 LossAtt 1.0000 TrainAcc 0.8000 TestAcc 0.5765
+epoch 250 LossPred 0.0925 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6725
+epoch 300 LossPred 0.0214 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6675
+Optimization Finished!
+********** replication  80  **********
+epoch   0 LossPred 1.0520 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6213 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5965
+epoch 100 LossPred 0.2476 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6345
+epoch 150 LossPred 0.1421 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6590
+epoch 200 LossPred 0.0826 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6095
+epoch 250 LossPred 0.0791 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6125
+epoch 300 LossPred 0.0763 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6130
+epoch 350 LossPred 0.0691 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6125
+epoch 400 LossPred 0.0423 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6245
+epoch 450 LossPred 0.9046 LossAtt 1.0000 TrainAcc 0.6800 TestAcc 0.5450
+epoch 500 LossPred 0.4913 LossAtt 1.0000 TrainAcc 0.8000 TestAcc 0.5120
+epoch 550 LossPred 0.1859 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6165
+epoch 600 LossPred 0.0404 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6195
+Optimization Finished!
+********** replication  81  **********
+epoch   0 LossPred 1.0096 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7712 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.5035
+epoch 100 LossPred 0.3740 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.5560
+epoch 150 LossPred 0.2555 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6110
+epoch 200 LossPred 0.2599 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6145
+epoch 250 LossPred 0.2428 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6040
+epoch 300 LossPred 0.2408 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6070
+epoch 350 LossPred 0.2394 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6115
+epoch 400 LossPred 0.2380 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6145
+epoch 450 LossPred 0.2358 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6115
+epoch 500 LossPred 0.2300 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6070
+epoch 550 LossPred 0.2022 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6065
+epoch 600 LossPred 0.1318 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6740
+epoch 650 LossPred 0.0509 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.7015
+Optimization Finished!
+********** replication  82  **********
+epoch   0 LossPred 1.0235 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7240 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.5315
+epoch 100 LossPred 0.3828 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.6320
+epoch 150 LossPred 0.2419 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6130
+epoch 200 LossPred 0.1458 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6235
+epoch 250 LossPred 0.0900 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6350
+epoch 300 LossPred 0.0834 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6315
+epoch 350 LossPred 0.0814 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6280
+epoch 400 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6295
+epoch 450 LossPred 0.0786 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6270
+epoch 500 LossPred 0.0705 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6395
+epoch 550 LossPred 0.0685 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6660
+Optimization Finished!
+********** replication  83  **********
+epoch   0 LossPred 1.0029 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5080
+epoch  50 LossPred 0.8244 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.5985
+epoch 100 LossPred 0.4466 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.6240
+epoch 150 LossPred 0.1084 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6440
+Optimization Finished!
+********** replication  84  **********
+epoch   0 LossPred 1.0667 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.9015 LossAtt 1.0000 TrainAcc 0.6200 TestAcc 0.5145
+epoch 100 LossPred 0.5012 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5585
+epoch 150 LossPred 0.1330 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6085
+epoch 200 LossPred 0.0325 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6445
+Optimization Finished!
+********** replication  85  **********
+epoch   0 LossPred 1.0046 LossAtt 1.0000 TrainAcc 0.4600 TestAcc 0.4865
+epoch  50 LossPred 0.7724 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.4980
+epoch 100 LossPred 0.3933 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.5830
+epoch 150 LossPred 0.2419 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.5925
+epoch 200 LossPred 0.1757 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5825
+epoch 250 LossPred 0.1640 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6005
+epoch 300 LossPred 0.1620 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5950
+epoch 350 LossPred 0.1611 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5935
+epoch 400 LossPred 0.1605 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5945
+epoch 450 LossPred 0.1601 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5985
+epoch 500 LossPred 0.1597 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5965
+epoch 550 LossPred 0.1594 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5970
+epoch 600 LossPred 0.1590 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5970
+epoch 650 LossPred 0.1585 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5970
+epoch 700 LossPred 0.1578 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5975
+epoch 750 LossPred 0.1565 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5985
+epoch 800 LossPred 0.1540 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5980
+epoch 850 LossPred 0.1500 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5935
+epoch 900 LossPred 0.1458 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5930
+epoch 950 LossPred 0.1409 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5960
+epoch 1000 LossPred 0.1324 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5985
+epoch 1050 LossPred 0.1094 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5970
+epoch 1100 LossPred 0.0563 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6050
+epoch 1150 LossPred 0.0133 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.5935
+Optimization Finished!
+********** replication  86  **********
+epoch   0 LossPred 1.0012 LossAtt 1.0000 TrainAcc 0.5200 TestAcc 0.5000
+epoch  50 LossPred 0.7576 LossAtt 1.0000 TrainAcc 0.7200 TestAcc 0.5245
+epoch 100 LossPred 0.4234 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.6305
+epoch 150 LossPred 0.3255 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6520
+epoch 200 LossPred 0.3038 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6470
+epoch 250 LossPred 0.2928 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6425
+epoch 300 LossPred 0.2806 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6455
+epoch 350 LossPred 0.2599 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6515
+epoch 400 LossPred 0.1526 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6550
+epoch 450 LossPred 0.0873 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6690
+epoch 500 LossPred 0.0622 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6645
+epoch 550 LossPred 0.0143 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6880
+Optimization Finished!
+********** replication  87  **********
+epoch   0 LossPred 1.0164 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7656 LossAtt 1.0000 TrainAcc 0.7200 TestAcc 0.5195
+epoch 100 LossPred 0.1849 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.5950
+epoch 150 LossPred 0.0224 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6640
+Optimization Finished!
+********** replication  88  **********
+epoch   0 LossPred 1.0073 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7322 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.6015
+epoch 100 LossPred 0.2887 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6115
+epoch 150 LossPred 0.1011 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6580
+epoch 200 LossPred 0.0830 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6535
+epoch 250 LossPred 0.1961 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6145
+epoch 300 LossPred 0.0832 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6725
+epoch 350 LossPred 0.0783 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6710
+epoch 400 LossPred 0.0104 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6515
+Optimization Finished!
+********** replication  89  **********
+epoch   0 LossPred 0.9638 LossAtt 1.0000 TrainAcc 0.6000 TestAcc 0.5125
+epoch  50 LossPred 0.5106 LossAtt 1.0000 TrainAcc 0.8000 TestAcc 0.5180
+epoch 100 LossPred 0.1930 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5695
+epoch 150 LossPred 0.0871 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5700
+epoch 200 LossPred 0.0816 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5750
+epoch 250 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5840
+epoch 300 LossPred 0.0795 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5830
+epoch 350 LossPred 0.0786 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5835
+epoch 400 LossPred 0.0769 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5725
+epoch 450 LossPred 0.0685 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5730
+epoch 500 LossPred 0.0155 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.5780
+Optimization Finished!
+********** replication  90  **********
+epoch   0 LossPred 1.0127 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.6191 LossAtt 1.0000 TrainAcc 0.8200 TestAcc 0.5925
+epoch 100 LossPred 0.2026 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6380
+epoch 150 LossPred 0.1498 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6380
+epoch 200 LossPred 0.0910 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6320
+epoch 250 LossPred 0.0338 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6370
+Optimization Finished!
+********** replication  91  **********
+epoch   0 LossPred 0.9964 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.4535
+epoch  50 LossPred 0.7343 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.5335
+epoch 100 LossPred 0.4713 LossAtt 1.0000 TrainAcc 0.8400 TestAcc 0.5570
+epoch 150 LossPred 0.2534 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.5955
+epoch 200 LossPred 0.1514 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6025
+epoch 250 LossPred 0.1041 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6300
+epoch 300 LossPred 0.0931 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6270
+epoch 350 LossPred 0.0886 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6235
+epoch 400 LossPred 0.0861 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6280
+epoch 450 LossPred 0.0845 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6250
+epoch 500 LossPred 0.0835 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6270
+epoch 550 LossPred 0.0828 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6265
+epoch 600 LossPred 0.0823 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6260
+epoch 650 LossPred 0.0819 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6255
+epoch 700 LossPred 0.0816 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6250
+epoch 750 LossPred 0.0814 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6245
+epoch 800 LossPred 0.0812 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6235
+epoch 850 LossPred 0.0811 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6230
+epoch 900 LossPred 0.0810 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6235
+epoch 950 LossPred 0.0808 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6225
+epoch 1000 LossPred 0.0808 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6225
+epoch 1050 LossPred 0.0807 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6210
+epoch 1100 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6205
+epoch 1150 LossPred 0.0806 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6285
+epoch 1200 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6285
+epoch 1250 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6285
+epoch 1300 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6285
+epoch 1350 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6285
+epoch 1400 LossPred 0.0804 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6285
+epoch 1450 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6290
+epoch 1500 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6290
+epoch 1550 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6280
+epoch 1600 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6265
+epoch 1650 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6290
+epoch 1700 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6285
+epoch 1750 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6290
+epoch 1800 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6290
+epoch 1850 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6285
+epoch 1900 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6280
+epoch 1950 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6280
+epoch 2000 LossPred 0.0802 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6280
+epoch 2050 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6280
+epoch 2100 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6280
+epoch 2150 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6285
+epoch 2200 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6290
+epoch 2250 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6290
+epoch 2300 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6285
+epoch 2350 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6285
+epoch 2400 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6285
+epoch 2450 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6330
+epoch 2500 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6330
+Optimization Finished!
+********** replication  92  **********
+epoch   0 LossPred 1.0345 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.8125 LossAtt 1.0000 TrainAcc 0.7000 TestAcc 0.5225
+epoch 100 LossPred 0.3560 LossAtt 1.0000 TrainAcc 0.8800 TestAcc 0.6015
+epoch 150 LossPred 0.1434 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6820
+epoch 200 LossPred 0.0930 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6740
+epoch 250 LossPred 0.0854 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6750
+epoch 300 LossPred 0.0829 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6755
+epoch 350 LossPred 0.0815 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6760
+epoch 400 LossPred 0.0800 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6800
+epoch 450 LossPred 0.0998 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6410
+epoch 500 LossPred 0.0177 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6640
+Optimization Finished!
+********** replication  93  **********
+epoch   0 LossPred 1.0232 LossAtt 1.0000 TrainAcc 0.5200 TestAcc 0.5355
+epoch  50 LossPred 0.7121 LossAtt 1.0000 TrainAcc 0.7600 TestAcc 0.5920
+epoch 100 LossPred 0.1633 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6145
+epoch 150 LossPred 0.0172 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6290
+Optimization Finished!
+********** replication  94  **********
+epoch   0 LossPred 1.0230 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.8151 LossAtt 1.0000 TrainAcc 0.7400 TestAcc 0.5735
+epoch 100 LossPred 0.3228 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.6295
+epoch 150 LossPred 0.1740 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6750
+epoch 200 LossPred 0.1621 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6850
+epoch 250 LossPred 0.1470 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6830
+epoch 300 LossPred 0.0238 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.7230
+Optimization Finished!
+********** replication  95  **********
+epoch   0 LossPred 1.0002 LossAtt 1.0000 TrainAcc 0.5200 TestAcc 0.5135
+epoch  50 LossPred 0.6710 LossAtt 1.0000 TrainAcc 0.8000 TestAcc 0.5395
+epoch 100 LossPred 0.2247 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.5700
+epoch 150 LossPred 0.0888 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5795
+epoch 200 LossPred 0.0824 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5830
+epoch 250 LossPred 0.0809 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5815
+epoch 300 LossPred 0.0801 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5765
+epoch 350 LossPred 0.0790 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5745
+epoch 400 LossPred 0.0651 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.5550
+epoch 450 LossPred 0.0031 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.5880
+Optimization Finished!
+********** replication  96  **********
+epoch   0 LossPred 0.9978 LossAtt 1.0000 TrainAcc 0.5200 TestAcc 0.4930
+epoch  50 LossPred 0.6371 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.4885
+epoch 100 LossPred 0.4223 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.5710
+epoch 150 LossPred 0.3239 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.5705
+epoch 200 LossPred 0.2517 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.5920
+epoch 250 LossPred 0.1928 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.5975
+epoch 300 LossPred 0.1718 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6160
+epoch 350 LossPred 0.1631 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6110
+epoch 400 LossPred 0.1537 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6040
+epoch 450 LossPred 0.1224 LossAtt 1.0000 TrainAcc 0.9600 TestAcc 0.6140
+epoch 500 LossPred 0.0892 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6160
+epoch 550 LossPred 0.0830 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6175
+epoch 600 LossPred 0.0756 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6170
+epoch 650 LossPred 0.0096 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6715
+Optimization Finished!
+********** replication  97  **********
+epoch   0 LossPred 1.0173 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7003 LossAtt 1.0000 TrainAcc 0.7800 TestAcc 0.5850
+epoch 100 LossPred 0.1293 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6350
+epoch 150 LossPred 0.0831 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6490
+epoch 200 LossPred 0.0803 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6520
+epoch 250 LossPred 0.0792 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6515
+epoch 300 LossPred 0.0782 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6520
+epoch 350 LossPred 0.0773 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6515
+epoch 400 LossPred 0.0760 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6645
+epoch 450 LossPred 0.0740 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6630
+epoch 500 LossPred 1.2757 LossAtt 1.0000 TrainAcc 0.5800 TestAcc 0.4855
+epoch 550 LossPred 0.1949 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6290
+epoch 600 LossPred 0.0145 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6530
+Optimization Finished!
+********** replication  98  **********
+epoch   0 LossPred 1.0036 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5000
+epoch  50 LossPred 0.7732 LossAtt 1.0000 TrainAcc 0.6600 TestAcc 0.5550
+epoch 100 LossPred 0.3990 LossAtt 1.0000 TrainAcc 0.9000 TestAcc 0.5960
+epoch 150 LossPred 0.2022 LossAtt 1.0000 TrainAcc 0.9400 TestAcc 0.6405
+epoch 200 LossPred 0.0531 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6890
+Optimization Finished!
+********** replication  99  **********
+epoch   0 LossPred 1.0100 LossAtt 1.0000 TrainAcc 0.5000 TestAcc 0.5080
+epoch  50 LossPred 0.7779 LossAtt 1.0000 TrainAcc 0.6000 TestAcc 0.5175
+epoch 100 LossPred 0.3069 LossAtt 1.0000 TrainAcc 0.9200 TestAcc 0.6135
+epoch 150 LossPred 0.1131 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6415
+epoch 200 LossPred 0.0882 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6480
+epoch 250 LossPred 0.0839 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6455
+epoch 300 LossPred 0.0822 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6400
+epoch 350 LossPred 0.0814 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6415
+epoch 400 LossPred 0.0809 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6400
+epoch 450 LossPred 0.0805 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6415
+epoch 500 LossPred 0.0732 LossAtt 1.0000 TrainAcc 0.9800 TestAcc 0.6355
+epoch 550 LossPred 0.0063 LossAtt 1.0000 TrainAcc 1.0000 TestAcc 0.6590
+Optimization Finished!
+********************************************************************
+Namespace(arch='tanh', attr_loss_start=1, batch_size=50, display_epoch=50, early_stop=True, input_noise_level=0.1, latent_attractor_space=True, loss_switch_frequency=0, lrate_attractor=0.0, lrate_prediction=0.002, lrate_wt_penalty=0.0, n_attractor_hidden=40, n_attractor_steps=0, n_hidden=20, n_replications=100, n_train=50, noise_level=0.25, report_best_train_performance=True, seq_len=20, task='reber', train_attr_weights_on_prediction=False, training_epochs=2500)
+********************************************************************
+mean train accuracy 0.9992
+indiv runs  [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.98, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.98, 0.98, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.98, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+mean epoch 419.229166667
+indiv epochs  [201, 1151, 201, 151, 251, 601, 401, 201, 151, 301, 901, 151, 301, 151, 151, 451, 451, 251, 151, 201, 251, 251, 251, 1851, 201, 401, 201, 201, 151, 551, 301, 151, 1851, 351, 151, 151, 151, 601, 151, 1451, 151, 201, 151, 201, 151, 151, 351, 151, 151, 201, 601, 1701, 351, 551, 301, 751, 401, 151, 301, 1401, 201, 251, 201, 1701, 651, 151, 151, 151, 501, 201, 551, 501, 201, 201, 201, 801, 301, 601, 651, 551, 151, 201, 1151, 551, 151, 401, 501, 251, 501, 151, 301, 451, 651, 601, 201, 551]
+test1 accuracy mean  0.65106004  median  0.6495
+test1 indiv runs  [0.7035, 0.5935, 0.612, 0.6745, 0.6495, 0.626, 0.685, 0.6795, 0.649, 0.676, 0.7195, 0.628, 0.6455, 0.601, 0.625, 0.6935, 0.6535, 0.6055, 0.6745, 0.634, 0.6545, 0.6645, 0.6395, 0.696, 0.693, 0.7, 0.654, 0.676, 0.6305, 0.631, 0.659, 0.652, 0.648, 0.617, 0.603, 0.642, 0.6235, 0.6395, 0.672, 0.649, 0.664, 0.5965, 0.7395, 0.633, 0.605, 0.634, 0.601, 0.6395, 0.6495, 0.6635, 0.624, 0.671, 0.598, 0.6505, 0.692, 0.637, 0.626, 0.661, 0.7525, 0.6335, 0.5965, 0.6225, 0.6605, 0.676, 0.624, 0.641, 0.6695, 0.6215, 0.6695, 0.6425, 0.684, 0.6495, 0.6665, 0.6605, 0.6605, 0.731, 0.661, 0.628, 0.6335, 0.6675, 0.6195, 0.7015, 0.666, 0.644, 0.6445, 0.5935, 0.688, 0.664, 0.6515, 0.578, 0.637, 0.633, 0.664, 0.629, 0.723, 0.588, 0.6715, 0.653, 0.689, 0.659]

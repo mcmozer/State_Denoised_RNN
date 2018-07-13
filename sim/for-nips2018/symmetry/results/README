@@ -1,0 +1,6 @@
+NOTE THAT 1filler and 10filler were run on different machines so you
+can't treat them as having a within-subject(replication) design
+
+rnn_tanh_5len_10filler_5000examples.out            0.8232 0.8807 0.0205
+sdprnn_tanh_5len_10filler_5000examples.out         0.8997 0.9365 0.0138
+

@@ -1,0 +1,8 @@
+# TRAIN ATTRACTORS WITH DENOISING LOSS
+foreach x  (10 20 30 40 50)
+   foreach n (".250" ".500")
+      foreach s (5 15)
+	 python rnn_attr.py -task reber -display_epoch 50 -training_epochs 2500 -n_replications 100 -lrate_prediction .002 -lrate_attractor .002 -arch tanh -latent_attractor_space -n_hidden 10 -n_attractor_hidden 20 -loss_switch_frequency 0 -report_best_train_performance -batch_size $x -noise_level $n -n_attractor_steps $s -n_train $x > sdrnn_${x}_10hid_${s}iter_${n}noise.out
+      end
+   end
+end

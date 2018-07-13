@@ -1,0 +1,14 @@
+#/bin/csh
+
+################################################################################
+# replicating parity
+################################################################################
+
+# SDRNN without weight decay
+#python rnn_attr.py -task parity -seq_len 10 -display_epoch 100 -n_hidden 10 -n_attractor_hidden 20 -training_epochs 5000 -n_replications 100 -lrate_attractor .008 -lrate_prediction .008 -lrate_wt_penalty 0. -n_attractor_steps 10 -arch tanh -noise_level 0.500 -report_best_train_performance -latent_attractor_space -batch_size 256 > sc3_10steps_noise500.out
+#python rnn_attr.py -task parity -seq_len 10 -display_epoch 100 -n_hidden 10 -n_attractor_hidden 20 -training_epochs 5000 -n_replications 100 -lrate_attractor .008 -lrate_prediction .008 -lrate_wt_penalty 0. -n_attractor_steps 15 -arch tanh -noise_level 0.500 -report_best_train_performance -latent_attractor_space -batch_size 256 > sc3_15steps_noise500.out
+python rnn_attr.py -task parity -seq_len 10 -display_epoch 100 -n_hidden 10 -n_attractor_hidden 20 -training_epochs 5000 -n_replications 100 -lrate_attractor .008 -lrate_prediction .008 -lrate_wt_penalty 0. -n_attractor_steps 2 -arch tanh -noise_level 0.500 -report_best_train_performance -latent_attractor_space -batch_size 256 > sc3_2steps_noise500.out
+
+#echo PARITY - GAUSSIAN NOISE - TRANSFORMED HIDDEN FOR ATTRACTOR NET
+#echo PARITY - no weight decay
+#echo 10 attractor hidden

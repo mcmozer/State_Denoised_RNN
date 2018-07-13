@@ -1,0 +1,72 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Boll(1979)]{Boll1979}
+S.~Boll.
+\newblock Suppression of acoustic noise in speech using spectral subtraction.
+\newblock \emph{IEEE Transactions on Acoustics, Speech, and Signal Processing},
+  27\penalty0 (2):\penalty0 113--120, Apr 1979.
+\newblock ISSN 0096-3518.
+\newblock \doi{10.1109/TASSP.1979.1163209}.
+
+\bibitem[Hopfield(1982)]{Hopfield1982}
+J.~J. Hopfield.
+\newblock Neural networks and physical systems with emergent collective
+  computational abilities.
+\newblock \emph{Proceedings of the national academy of sciences}, 79\penalty0
+  (8):\penalty0 2554--2558, 1982.
+
+\bibitem[Hopfield(1984)]{Hopfield1984}
+J.~J. Hopfield.
+\newblock Neurons with graded response have collective computational properties
+  like those of two-state neurons.
+\newblock \emph{Proceedings of the national academy of sciences}, 81\penalty0
+  (10):\penalty0 3088--3092, 1984.
+
+\bibitem[Koiran(1994)]{Koiran1994}
+P.~Koiran.
+\newblock Dynamics of discrete time, continuous state hopfield networks.
+\newblock \emph{Neural Computation}, 6\penalty0 (3):\penalty0 459--468, 1994.
+
+\bibitem[Mozer(2009)]{Mozer2009}
+M.~C. Mozer.
+\newblock Attractor networks.
+\newblock In T.~Bayne, A.~Cleeremans, and P.~Wilken, editors, \emph{Oxford
+  Companion to Consciousness}, pages 88--89. Oxford University Press, Oxford
+  UK, 2009.
+
+\bibitem[Siegelmann(2008)]{Siegelmann2008}
+H.~T. Siegelmann.
+\newblock Analog-symbolic memory that tracks via reconsolidation.
+\newblock \emph{Physica D: Nonlinear Phenomena}, 237\penalty0 (9):\penalty0
+  1207 -- 1214, 2008.
+\newblock \doi{https://doi.org/10.1016/j.physd.2008.03.038}.
+
+\bibitem[Simard et~al.(1992)Simard, Victorri, LeCun, and Denker]{Simard1992}
+P.~Simard, B.~Victorri, Y.~LeCun, and J.~Denker.
+\newblock Tangent prop - a formalism for specifying selected invariances in an
+  adaptive network.
+\newblock In J.~E. Moody, S.~J. Hanson, and R.~P. Lippmann, editors,
+  \emph{Advances in Neural Information Processing Systems 4}, pages 895--903.
+  Morgan-Kaufmann, 1992.
+
+\bibitem[Witthoft et~al.(2003)Witthoft, Winawer, Wu, Frank, Wade, and
+  Boroditsky]{Witthoftetal2003}
+N.~Witthoft, J.~Winawer, L.~Wu, M.~Frank, A.~Wade, and L.~Boroditsky.
+\newblock Effects of language on color discriminability.
+\newblock In R.~Alterman and D.~Kirsh, editors, \emph{Proceedings of the
+  Twenty-Fifth Annual Conference of the Cognitive Science Society}, volume Pts
+  1 and 2, pages 1247--1252. Erlbaum Associates, 2003.
+
+\bibitem[Zheng et~al.(2016)Zheng, Song, Leung, and Goodfellow]{Zheng2016}
+S.~Zheng, Y.~Song, T.~Leung, and I.~Goodfellow.
+\newblock Improving the robustness of deep neural networks via stability
+  training.
+\newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 4480--4488, 2016.
+
+\end{thebibliography}
